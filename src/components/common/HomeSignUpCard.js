@@ -6,7 +6,7 @@ function HomeSignUpCard(props) {
         <div>
             <img src={`/img/cards/${props.img}`} alt={props.type}/>
             <p>{props.description}</p>
-            <Link to={`/signup/${props.type}`}>SIGN UP TODAY </Link>
+            <Link to={`/signup`}>SIGN UP TODAY </Link>
         </div>
     )
 }

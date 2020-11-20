@@ -42,10 +42,10 @@ class AuthProvider extends Component {
   }
 
   signup = (user) => {
-    const { username, password } = user;
+    const { name, email, password,} = user;
     // lamamos a auth.signup que se conecta con la ruta del backend
     auth
-      .signup({ username, password })
+      .signup({ name, email, password })
       .then((user) => this.setState({ isLoggedin: true, user }))
       .catch(({ error }) =>
         this.setState({ message: error.data.statusMessage })
@@ -53,10 +53,10 @@ class AuthProvider extends Component {
   };
 
   login = async (user) => {
-    const { username, password } = user;
+    const { email, password } = user;
 
     try {
-      const user = await auth.login({ username, password });
+      const user = await auth.login({ email, password });
       this.setState({ isLoggedin: true, user });
     } catch (error) {
       console.log(error);

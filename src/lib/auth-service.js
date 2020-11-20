@@ -3,21 +3,57 @@ import axios from "axios";
 class Auth {
   constructor() {
     this.auth = axios.create({
-      baseURL: "http://localhost:4000",
+      baseURL: process.env.REACT_APP_API_URL,
       withCredentials: true,
     });
   }
 
-  signup({ username, password }) {
-    return this.auth
-      .post("/auth/signup", { username, password })
-      .then(({ data }) => data);
-    // .then((response) => response.data);
+  signup({  name, email, password, logo, street, number,  flat,  city, postcode,  country,  phoneNumber,  description, typeName,  pickupDate, pickupPlace }) {
+
+    // if(typeName) {
+      return this.auth
+        .post("/auth/signup/business", {  
+          name,
+          email,
+          password,
+          // logo,
+          // street,
+          // number,
+          // flat,
+          // city,
+          // postcode,
+          // country,
+          // phoneNumber,
+          // description,
+          // typeName,
+          // pickupDate,
+          // pickupPlace 
+        })
+        .then(({ data }) => data);
+      // .then((response) => response.data);
+    // }
+    // else {
+    //   return this.auth
+    //   .post("/auth/signup/association", {  name,
+    //     email,
+    //     password,
+    //     logo,
+    //     street,
+    //     number,
+    //     flat,
+    //     city,
+    //     postcode,
+    //     country,
+    //     phoneNumber,
+    //     description,
+    //     })
+    //   .then(({ data }) => data);
+    // }
   }
 
-  login({ username, password }) {
+  login({ email, password }) {
     return this.auth
-      .post("/auth/login", { username, password })
+      .post("/auth/login", { email, password })
       .then(({ data }) => data);
     // .then((response) => response.data);
   }

@@ -8,8 +8,8 @@ function Home() {
             <header>
                 <h1>FOOD FOR ALL</h1>
                 <div>
-                    <Link to="/signup/business">Sign Up</Link>
-                    <Link to="/login/business">Login</Link>
+                    <Link to="/signup">Sign Up</Link>
+                    <Link to="/login">Login</Link>
                 </div>
                 <div>
                     <HomeSignUpCard img= "bakery-RK.jpg" description= "iwurghrwiughvnirug aroeigjinvgurignv" type="business" />

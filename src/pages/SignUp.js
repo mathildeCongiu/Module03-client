@@ -29,35 +29,37 @@ class Signup extends Component {
     const {       name,
       email,
       password,
-      logo,
-      street,
-      number,
-      flat,
-      city,
-      postcode,
-      country,
-      phoneNumber,
-      description,
-      typeName,
-      pickupDate,
-      pickupPlace, } = this.state;
+      // logo,
+      // street,
+      // number,
+      // flat,
+      // city,
+      // postcode,
+      // country,
+      // phoneNumber,
+      // description,
+      // typeName,
+      // pickupDate,
+      // pickupPlace, 
+    } = this.state;
     
     this.props.signup({       
       name,
       email,
       password,
-      logo,
-      street,
-      number,
-      flat,
-      city,
-      postcode,
-      country,
-      phoneNumber,
-      description,
-      typeName,
-      pickupDate,
-      pickupPlace, });
+      // logo,
+      // street,
+      // number,
+      // flat,
+      // city,
+      // postcode,
+      // country,
+      // phoneNumber,
+      // description,
+      // typeName,
+      // pickupDate,
+      // pickupPlace, 
+    });
   };
 
   handleChange = event => {
@@ -75,8 +77,8 @@ class Signup extends Component {
         <button onClick={() => this.toggleHandler()}>Sign Up as a Business</button>
         <button onClick={() => this.toggleHandler()}>Sign Up as an Asso</button>
         </div>
-       { !this.state.isBusiness ? <AssoSignUp {...this.state} handleChange= {(e) => this.handleChange(e)} handleFormSubmit= {(e) => this.handleFormSubmit(e)}/> :
-              <BusinessSignUp {...this.state} handleChange= {(e) => this.handleChange(e)} handleFormSubmit= {(e) => this.handleFormSubmit(e)}/>}
+       { !this.state.isBusiness ? <AssoSignUp {...this.state} handleChange= {(e) => this.handleChange(e)} handleFormSubmit= {this.handleFormSubmit}/> :
+              <BusinessSignUp {...this.state} handleChange= {(e) => this.handleChange(e)} handleFormSubmit= {this.handleFormSubmit}/>}
   
       </div>
     );
