@@ -20,7 +20,7 @@ class Dashboard extends Component {
     console.log("user", user);
     return (
       <div>
-        <ProfileHeader />
+        <ProfileHeader /*user={user}*//>
 
         {user.relationship === "business" ? <p>{user.pickup.day}</p> : null}
 

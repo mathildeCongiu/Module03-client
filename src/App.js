@@ -18,6 +18,8 @@ import AddProduct from "./pages/AddProduct";
 import EditProduct from "./pages/EditProduct";
 import Others from "./pages/Others";
 import Search from "./pages/Search";
+import BusinessDetail from "./pages/BusinessDetail";
+import AssoDetails from "./pages/AssoDetails";
 
 class App extends Component {
   render() {
@@ -32,8 +34,10 @@ class App extends Component {
             <PrivateRoute exact path="/products" component={ProductsPage} />
             <PrivateRoute exact path="/products/add" component={AddProduct} />
             <PrivateRoute exact path="/products/edit" component={EditProduct} />
-            <PrivateRoute exact path="/others" component={Others} />         
-            <PrivateRoute exact path="/search" component={Search} />         
+            <PrivateRoute exact path="/others" component={Others} />
+            <PrivateRoute exact path="/search" component={Search} />
+            <PrivateRoute exact path="/business-details" component={BusinessDetail} />
+            <PrivateRoute exact path="/association-details" component={AssoDetails} />
           </Switch>
         </div>
       </AuthProvider>
