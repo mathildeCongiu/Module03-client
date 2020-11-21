@@ -9,46 +9,45 @@ class Auth {
   }
 
   signup({  name, email, password, logo, street, number,  flat,  city, postcode,  country,  phoneNumber,  description, typeName,  pickupDate, pickupPlace }) {
-
-    // if(typeName) {
+console.log(typeName)
+    if(typeName) {
       return this.auth
         .post("/auth/signup/business", {  
           name,
           email,
           password,
-          // logo,
-          // street,
-          // number,
-          // flat,
-          // city,
-          // postcode,
-          // country,
-          // phoneNumber,
-          // description,
-          // typeName,
-          // pickupDate,
-          // pickupPlace 
+          logo,
+          street,
+          number,
+          flat,
+          city,
+          postcode,
+          country,
+          phoneNumber,
+          description,
+          typeName,
+          pickupDate,
+          pickupPlace
         })
         .then(({ data }) => data);
-      // .then((response) => response.data);
-    // }
-    // else {
-    //   return this.auth
-    //   .post("/auth/signup/association", {  name,
-    //     email,
-    //     password,
-    //     logo,
-    //     street,
-    //     number,
-    //     flat,
-    //     city,
-    //     postcode,
-    //     country,
-    //     phoneNumber,
-    //     description,
-    //     })
-    //   .then(({ data }) => data);
-    // }
+    }
+    else {
+      return this.auth
+      .post("/auth/signup/association", {  name,
+        email,
+        password,
+        logo,
+        street,
+        number,
+        flat,
+        city,
+        postcode,
+        country,
+        phoneNumber,
+        description,
+        })
+      .then(({ data }) => data);
+    }
   }
 
   login({ email, password }) {

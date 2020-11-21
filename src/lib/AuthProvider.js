@@ -42,10 +42,10 @@ class AuthProvider extends Component {
   }
 
   signup = (user) => {
-    const { name, email, password,} = user;
+    const { name, email, password, logo, street, number,  flat,  city, postcode,  country,  phoneNumber,  description, typeName,  pickupDate, pickupPlace } = user;
     // lamamos a auth.signup que se conecta con la ruta del backend
     auth
-      .signup({ name, email, password })
+      .signup({ name, email, password, logo, street, number,  flat,  city, postcode,  country,  phoneNumber,  description, typeName,  pickupDate, pickupPlace })
       .then((user) => this.setState({ isLoggedin: true, user }))
       .catch(({ error }) =>
         this.setState({ message: error.data.statusMessage })
