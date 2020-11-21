@@ -71,10 +71,19 @@ class AuthProvider extends Component {
       console.log(error);
     }
   };
-
+  /*//Test for USER get info
+  getUserInfo = async () => {
+    try {
+      const user = await auth.getUserInfo();
+      this.setState({ user });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+*/
   render() {
     const { isLoading, isLoggedin, user } = this.state;
-    const { login, logout, signup } = this;
+    const { login, logout, signup, getUserInfo } = this;
 
     return isLoading ? (
       <div>Loading</div>

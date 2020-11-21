@@ -9,7 +9,6 @@ class Auth {
   }
 
   signup({  name, email, password, logo, street, number,  flat,  city, postcode,  country,  phoneNumber,  description, typeName,  pickupDate, pickupPlace }) {
-console.log(typeName)
     if(typeName) {
       return this.auth
         .post("/auth/signup/business", {  
@@ -66,6 +65,11 @@ console.log(typeName)
     return this.auth.get("/auth/me").then(({ data }) => data);
     // return this.auth.get("/auth/me").then((response) => response.data);
   }
+/*  //Test for USER get info
+  getUserInfo() {
+    return this.auth.get('/business/dashboard').then(({ data }) => data);
+  }
+  */
 }
 
 const axiosRequestFunctions = new Auth();

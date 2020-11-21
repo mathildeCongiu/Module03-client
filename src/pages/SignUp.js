@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
-import AssoSignUp from "../components/common/AssoSignUp";
-import BusinessSignUp from "../components/common/BusinessSignUp";
+import AssoSignUp from "../components/public-common/AssoSignUp";
+import BusinessSignUp from "../components/public-common/BusinessSignUp";
 import { withAuth } from '../lib/AuthProvider';
 
 class Signup extends Component {

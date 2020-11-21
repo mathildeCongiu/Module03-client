@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import HomeSignUpCard from '../components/common/HomeSignUpCard'
+import HomeSignUpCard from '../components/public-common/HomeSignUpCard'
 
 function Home() {
     return (
