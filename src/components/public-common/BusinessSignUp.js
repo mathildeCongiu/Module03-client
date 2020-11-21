@@ -107,13 +107,13 @@ class BusinessSignUp extends Component {
           <div>
             <select name="pickupDate" onChange={(e) => this.props.handleChange(e)}>
               <option value="day">SELECT DAY</option>
-              <option value="monday">Monday</option>
-              <option value="tuesday">Tuesday</option>
-              <option value="wednesday">Wednesday</option>
-              <option value="thursday">Thursday</option>
-              <option value="friday">Friday</option>
-              <option value="saturday">Saturday</option>
-              <option value="sunday">Sunday</option>
+              <option value="Mon.">Monday</option>
+              <option value="Tue.">Tuesday</option>
+              <option value="Wed.">Wednesday</option>
+              <option value="Thu.">Thursday</option>
+              <option value="Fri.">Friday</option>
+              <option value="Sat.">Saturday</option>
+              <option value="Sun.">Sunday</option>
             </select>
             {/* <input type="hour" name="hour" value= "19:00" onChange= {(e) => this.handleChange(e)}/> */}
           </div>

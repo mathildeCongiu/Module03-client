@@ -7,6 +7,7 @@ import { withAuth } from "../lib/AuthProvider";
 
 class Dashboard extends Component {
   state = {
+      user: {},
       showPending: false,
   }
 
@@ -15,14 +16,14 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { user, logout, isLoggedin } = this.props;
+    const { user } = this.props;
     console.log("user", user);
     return (
       <div>
-        <button onClick={logout}>Log out</button>
+        
         <ProfileHeader />
 
-        <p>Wed, 8 PM</p>
+        <p>{user.pickup.day}</p>
         <div>
           <button onClick={() => this.toggleHandler()}>Collaborations</button>
           <button onClick={() => this.toggleHandler()}>Pending</button>

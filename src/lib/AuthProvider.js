@@ -72,6 +72,7 @@ class AuthProvider extends Component {
     }
   };
 
+
   render() {
     const { isLoading, isLoggedin, user } = this.state;
     const { login, logout, signup, getUserInfo } = this;

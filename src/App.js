@@ -13,6 +13,9 @@ import AuthProvider from "./lib/AuthProvider";
 import AnonRoute from "./components/auth/AnonRoute";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
+import ProductsPage from "./pages/ProductsPage";
+import AddProduct from "./pages/AddProduct";
+import EditProduct from "./pages/EditProduct";
 
 class App extends Component {
   render() {
@@ -24,6 +27,9 @@ class App extends Component {
             <AnonRoute exact path="/signup" component={SignUp} />
             <AnonRoute exact path="/login" component={Login} />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <PrivateRoute exact path="/products" component={ProductsPage} />
+            <PrivateRoute exact path="/products/add" component={AddProduct} />
+            <PrivateRoute exact path="/products/edit" component={EditProduct} />
           </Switch>
         </div>
       </AuthProvider>
