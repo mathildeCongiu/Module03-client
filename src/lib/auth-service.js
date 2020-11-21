@@ -65,11 +65,7 @@ class Auth {
     return this.auth.get("/auth/me").then(({ data }) => data);
     // return this.auth.get("/auth/me").then((response) => response.data);
   }
-/*  //Test for USER get info
-  getUserInfo() {
-    return this.auth.get('/business/dashboard').then(({ data }) => data);
-  }
-  */
+
 }
 
 const axiosRequestFunctions = new Auth();

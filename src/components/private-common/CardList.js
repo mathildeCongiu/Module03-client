@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withAuth } from '../../lib/AuthProvider';
+import Card from './Card';
 
 class CardList extends Component {
     
@@ -22,6 +23,7 @@ class CardList extends Component {
                     return(
             <li>
                     {element}
+                    <Card {...this.props} />
             </li>
                     )
         })}

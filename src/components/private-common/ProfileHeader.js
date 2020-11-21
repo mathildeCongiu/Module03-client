@@ -7,19 +7,6 @@ class ProfileHeader extends Component {
         img: "/img/cards/grocery-GS.jpg",
     }
 
-    /*  //Test for USER get info
-    componentDidMount = () => {
-        try {
-            const user = this.props.getUserInfo()
-            console.log("function getUser", user)
-            // return this.setState({ user: getUser.data })
-            // console.log("user", this.state.user)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    */
-
     render() {
         return (
             <div>

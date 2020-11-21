@@ -12,7 +12,7 @@ import AuthProvider from "./lib/AuthProvider";
 
 import AnonRoute from "./components/auth/AnonRoute";
 import PrivateRoute from "./components/auth/PrivateRoute";
-import { Dashboard } from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard";
 
 class App extends Component {
   render() {
