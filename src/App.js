@@ -16,6 +16,8 @@ import Dashboard from "./pages/Dashboard";
 import ProductsPage from "./pages/ProductsPage";
 import AddProduct from "./pages/AddProduct";
 import EditProduct from "./pages/EditProduct";
+import Others from "./pages/Others";
+import Search from "./pages/Search";
 
 class App extends Component {
   render() {
@@ -30,6 +32,8 @@ class App extends Component {
             <PrivateRoute exact path="/products" component={ProductsPage} />
             <PrivateRoute exact path="/products/add" component={AddProduct} />
             <PrivateRoute exact path="/products/edit" component={EditProduct} />
+            <PrivateRoute exact path="/others" component={Others} />         
+            <PrivateRoute exact path="/search" component={Search} />         
           </Switch>
         </div>
       </AuthProvider>

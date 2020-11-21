@@ -32,7 +32,7 @@ class BusinessSignUp extends Component {
             <option value="fishmonger">Fishmonger</option>
             <option value="bakery">Bakery</option>
             <option value="supermarket">Supermarket</option>
-            <option value="butchShop">Butch Shop</option>
+            <option value="butchShop">Butcher Shop</option>
             <option value="restaurant">Restaurant</option>
             <option value="grocery">Green Grocery</option>
           </select>

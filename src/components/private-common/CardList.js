@@ -22,7 +22,6 @@ class CardList extends Component {
                 {this.selectList().map( element => {
                     return(
             <li>
-                    {element}
                     <Card {...this.props} />
             </li>
                     )

@@ -7,9 +7,9 @@ import { withAuth } from "../lib/AuthProvider";
 
 class Dashboard extends Component {
   state = {
-      user: {},
-      showPending: false,
-  }
+    user: {},
+    showPending: false,
+  };
 
   toggleHandler = () => {
     this.setState({ showPending: !this.state.showPending });
@@ -20,10 +20,10 @@ class Dashboard extends Component {
     console.log("user", user);
     return (
       <div>
-        
         <ProfileHeader />
 
-        <p>{user.pickup.day}</p>
+        {user.relationship === "business" ? <p>{user.pickup.day}</p> : null}
+
         <div>
           <button onClick={() => this.toggleHandler()}>Collaborations</button>
           <button onClick={() => this.toggleHandler()}>Pending</button>

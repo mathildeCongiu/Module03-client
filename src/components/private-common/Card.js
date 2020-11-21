@@ -7,12 +7,13 @@ class Card extends Component {
     }
 
     render() {
+        const { user } = this.props
         return (
             <div>
                 <img src={this.state.img} alt="Card img"/>
                 <img src="/img/upload.png" alt="Logo"/>
                 <h3>Association Pepita</h3>
-                {(this.props.showPending) ? <div>
+                {(this.props.showPending && user.relationship === "business") ? <div>
                     <button>Accept</button>
                     <button>Reject</button>
                 </div> : null }

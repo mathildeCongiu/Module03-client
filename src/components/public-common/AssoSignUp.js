@@ -12,7 +12,7 @@ export class AssoSignUp extends Component {
             name="name"
             placeholder="Name"
             value={this.props.name}
-            onChange={this.handleChange}
+            onChange={(e) => this.props.handleChange(e)}
           />
           <div>
             <button>
@@ -24,21 +24,21 @@ export class AssoSignUp extends Component {
             name="description"
             placeholder="Short description of what you do"
             value={this.props.description}
-            onChange={this.props.handleChange}
+            onChange={(e) => this.props.handleChange(e)}
           />
           <input
             type="email"
             name="email"
             placeholder="Email"
             value={this.props.email}
-            onChange={this.props.handleChange}
+            onChange={(e) => this.props.handleChange(e)}
           />
           <input
             type="password"
             name="password"
             placeholder="Password"
             value={this.props.password}
-            onChange={this.props.handleChange}
+            onChange={(e) => this.props.handleChange(e)}
           />
           <label>HEADQUARTERS ADDRESS</label>
           <input
@@ -46,7 +46,7 @@ export class AssoSignUp extends Component {
             name="street"
             placeholder="Street"
             value={this.props.street}
-            onChange={this.props.handleChange}
+            onChange={(e) => this.props.handleChange(e)}
           />
           <div>
             <input
@@ -54,21 +54,21 @@ export class AssoSignUp extends Component {
               name="number"
               placeholder="Number"
               value={this.props.number}
-              onChange={this.props.handleChange}
+              onChange={(e) => this.props.handleChange(e)}
             />
             <input
               type="text"
               name="flat"
               placeholder="Flat"
               value={this.props.flat}
-              onChange={this.props.handleChange}
+              onChange={(e) => this.props.handleChange(e)}
             />
             <input
               type="number"
               name="postcode"
               placeholder="ZIP Code"
               value={this.props.postcode}
-              onChange={this.props.handleChange}
+              onChange={(e) => this.props.handleChange(e)}
             />
           </div>
           <div>
@@ -77,14 +77,14 @@ export class AssoSignUp extends Component {
               name="city"
               placeholder="City"
               value={this.props.city}
-              onChange={this.props.handleChange}
+              onChange={(e) => this.props.handleChange(e)}
             />
             <input
               type="text"
               name="country"
               placeholder="Country"
               value={this.props.country}
-              onChange={this.props.handleChange}
+              onChange={(e) => this.props.handleChange(e)}
             />
           </div>
           <input
@@ -92,7 +92,7 @@ export class AssoSignUp extends Component {
             name="phoneNumber"
             placeholder="Phone Number"
             value={this.props.phoneNumber}
-            onChange={this.props.handleChange}
+            onChange={(e) => this.props.handleChange(e)}
           />
           <p>
             Already have an account!{" "}
