@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 export class AssoSignUp extends Component {
   render() {
     return (
-      <div className="register-asso">
-        <form onSubmit={this.props.handleFormSubmit}>
+      <div className="register-page register-asso">
+        <form className="register-form" onSubmit={this.props.handleFormSubmit}>
           <label>ASSO INFO</label>
           <input
             type="text"
@@ -14,7 +14,7 @@ export class AssoSignUp extends Component {
             value={this.props.name}
             onChange={(e) => this.props.handleChange(e)}
           />
-          <div>
+          <div className="upload-logo">
             <button>
               <img src="../../img/upload.png" alt="" />
             </button>
@@ -48,7 +48,7 @@ export class AssoSignUp extends Component {
             value={this.props.street}
             onChange={(e) => this.props.handleChange(e)}
           />
-          <div>
+          <div className="address-nums">
             <input
               type="number"
               name="number"
@@ -71,7 +71,7 @@ export class AssoSignUp extends Component {
               onChange={(e) => this.props.handleChange(e)}
             />
           </div>
-          <div>
+          <div className="address-city">
             <input
               type="text"
               name="city"
@@ -97,11 +97,11 @@ export class AssoSignUp extends Component {
           <p>
             Already have an account!{" "}
             <span>
-              <Link to={"/login"}>Log In</Link>
+              <Link className="link secondary-color" to={"/login"}>Log In</Link>
             </span>{" "}
             here!
           </p>
-          <input type="submit" value="Signup" />
+          <input className="button input-button" type="submit" value="Signup" />
         </form>
       </div>
     );

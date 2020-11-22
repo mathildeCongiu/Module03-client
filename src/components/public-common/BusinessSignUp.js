@@ -5,8 +5,8 @@ import { withAuth } from "../../lib/AuthProvider";
 class BusinessSignUp extends Component {
   render() {
     return (
-      <div className="register-business">
-        <form onSubmit={this.props.handleFormSubmit}>
+      <div className="register-page register-business">
+        <form className="register-form" onSubmit={this.props.handleFormSubmit}>
           <label>BUSINESS INFO</label>
           <input
             type="text"
@@ -15,7 +15,7 @@ class BusinessSignUp extends Component {
             value={this.props.name}
             onChange={(e) => this.props.handleChange(e)}
           />
-          <div>
+          <div className="upload-logo">
             <button>
               <img src="../../img/upload.png" alt="" />
             </button>
@@ -58,7 +58,7 @@ class BusinessSignUp extends Component {
             value={this.props.street}
             onChange={(e) => this.props.handleChange(e)}
           />
-          <div>
+          <div className="address-nums">
             <input
               type="number"
               name="number"
@@ -81,7 +81,7 @@ class BusinessSignUp extends Component {
               onChange={(e) => this.props.handleChange(e)}
             />
           </div>
-          <div>
+          <div className="address-city">
             <input
               type="text"
               name="city"
@@ -104,7 +104,7 @@ class BusinessSignUp extends Component {
             value={this.props.phoneNumber}
             onChange={(e) => this.props.handleChange(e)}
           />
-          <div>
+          <div className="date-input">
             <select name="pickupDate" onChange={(e) => this.props.handleChange(e)}>
               <option value="day">SELECT DAY</option>
               <option value="Mon.">Monday</option>
@@ -117,16 +117,16 @@ class BusinessSignUp extends Component {
             </select>
             {/* <input type="hour" name="hour" value= "19:00" onChange= {(e) => this.handleChange(e)}/> */}
           </div>
-          <button>Add more days</button>
+          {/* <button>Add more days</button> */}
           <p>
             Already have an account!{" "}
             <span>
-              <Link to={"/login"}>Log In</Link>
+              <Link className="link" to={"/login"}>Log In</Link>
             </span>{" "}
             here!
           </p>
 
-          <input type="submit" value="Signup" />
+          <input className="button main-color-button input-button" type="submit" value="Signup" />
         </form>
       </div>
     );
