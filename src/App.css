@@ -623,3 +623,56 @@ body {
 .filter-options input {
     margin-right: 10px;
 }
+
+/* Details page  */
+.details-page {
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.back-button-details {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
+.details-info {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.details-info > p:first-child {
+    background-color: var(--clear);
+    color: var(--text);
+    padding: 8px;
+    width: 90%;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.details-info > h3, h4, p {
+    color: var(--clear);
+    font-size: 5vw;
+    margin-bottom: 10px;
+}
+
+.details-info > h4, p {
+    font-size: 4.5vw;
+}
+
+.details-info > p {
+    margin-bottom: 20px;
+}
+
+.details-page > button {
+    align-self: center;
+}
+
+.asso-details {
+    height: 100vh;
+}
