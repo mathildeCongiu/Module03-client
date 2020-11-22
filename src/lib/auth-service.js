@@ -49,11 +49,18 @@ class Auth {
     }
   }
 
-  login({ email, password }) {
-    return this.auth
-      .post("/auth/login", { email, password })
+  login({ email, password, isBusiness }) {
+    if(isBusiness) {
+      return this.auth
+        .post("/auth/login/business", { email, password })
+        .then(({ data }) => data);
+      // .then((response) => response.data);
+    }
+    else {
+      return this.auth
+      .post("/auth/login/association", { email, password })
       .then(({ data }) => data);
-    // .then((response) => response.data);
+    }
   }
 
   logout() {

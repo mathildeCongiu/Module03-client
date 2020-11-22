@@ -18,7 +18,10 @@ class Search extends Component {
     }
 
     render() {
+        {console.log(this.props.search())}
+
         return (
+            
             <div>
                 <div>
                     <label>Search</label>
@@ -36,6 +39,7 @@ class Search extends Component {
                 </div> : null }
 
                 <CardList />
+                {/* {this.props.search().data.map(element => console.log(element) )} */}
             </div>
         )
     }

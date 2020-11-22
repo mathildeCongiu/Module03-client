@@ -16,11 +16,13 @@ class Login extends Component {
     const {      
       email,
       password,
+      isBusiness
     } = this.state;
     
     this.props.login({       
       email,
-      password});
+      password,
+    isBusiness});
   };
 
   handleChange = event => {

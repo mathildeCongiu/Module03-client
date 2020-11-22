@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import auth from "./auth-service"; // importamos funciones para llamadas axios a la API
+import asso from "./asso-service"; // importamos funciones para llamadas axios a la API
+
 const { Consumer, Provider } = React.createContext();
 
 //HOC para crear Consumer
@@ -8,7 +10,7 @@ const withAuth = (WrappedComponent) => {
     render() {
       return (
         <Consumer>
-          {({ login, signup, user, logout, isLoggedin }) => {
+          {({ login, signup, user, logout, isLoggedin, search }) => {
             return (
               <WrappedComponent
                 login={login}
@@ -16,6 +18,7 @@ const withAuth = (WrappedComponent) => {
                 user={user}
                 logout={logout}
                 isLoggedin={isLoggedin}
+                search= {search}
                 {...this.props}
               />
             );
@@ -53,10 +56,10 @@ class AuthProvider extends Component {
   };
 
   login = async (user) => {
-    const { email, password } = user;
+    const { email, password , isBusiness} = user;
 
     try {
-      const user = await auth.login({ email, password });
+      const user = await auth.login({ email, password,isBusiness });
       this.setState({ isLoggedin: true, user });
     } catch (error) {
       console.log(error);
@@ -72,16 +75,23 @@ class AuthProvider extends Component {
     }
   };
 
+  search = async() => {
+    try {
+      await asso.search();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   render() {
     const { isLoading, isLoggedin, user } = this.state;
-    const { login, logout, signup, getUserInfo } = this;
+    const { login, logout, signup, search } = this;
 
     return isLoading ? (
       <div>Loading</div>
     ) : (
       /* dentro del value del provider tendremos datos que estarán disponibles para todos los componentes <Consumer> */
-      <Provider value={{ isLoggedin, user, login, logout, signup }}>
+      <Provider value={{ isLoggedin, user, login, logout, signup, search }}>
         {this.props.children}
       </Provider>
     );
