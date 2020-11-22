@@ -78,6 +78,7 @@ class AuthProvider extends Component {
   search = async() => {
     try {
       await asso.search();
+
     } catch (error) {
       console.log(error);
     }

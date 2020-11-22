@@ -3,6 +3,8 @@ import { withAuth } from "../../lib/AuthProvider";
 import Card from "./Card";
 
 class CardList extends Component {
+  state= {
+  }
   selectList = () => {
     let arr = [];
     if (this.props.showPending) {
@@ -12,7 +14,24 @@ class CardList extends Component {
     }
 
     return arr;
-  };
+  }
+
+  getBusinesses = async () => {
+    const data =  await this.props.search()
+    console.log(data, "what is happening")
+    this.setState({
+      searchResults: data
+  })
+  }
+
+  componentDidMount =  () => {
+    if(!this.state.searchResults) {
+      this.getBusinesses()
+    }
+      
+    console.log(this.state.searchResults)
+  }
+ 
 
   render() {
     return (
@@ -25,6 +44,7 @@ class CardList extends Component {
               </li>
             );
           })}
+          
         </ul>
       </div>
     );

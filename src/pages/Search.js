@@ -12,16 +12,16 @@ class Search extends Component {
   //     this.props.showResult(value)
   // }
 
+
   showFilters = () => {
     this.setState({
       areFiltersShown: !this.state.areFiltersShown,
     });
   };
 
+
   render() {
-    // {
-    //   console.log(this.props.search());
-    // }
+  
 
     return (
       <div className="search-page">
@@ -63,7 +63,6 @@ class Search extends Component {
         ) : null}
 
         <CardList />
-        {/* {this.props.search().data.map(element => console.log(element) )} */}
         <Navbar />
       </div>
     );
