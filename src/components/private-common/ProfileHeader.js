@@ -52,9 +52,9 @@ class ProfileHeader extends Component {
   render() {
     const { user } = this.props;
     return (
-      <div>
+      <div className="profile-header">
         <img src={this.state.img} alt="Photo" />
-        <img src="/img/upload.png" alt="Business Logo" />
+        <img className="profile-logo" src="/img/upload.png" alt="Business Logo" />
         <h2>{user.name}</h2>
       </div>
     );

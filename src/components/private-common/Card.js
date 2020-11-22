@@ -9,13 +9,13 @@ class Card extends Component {
     render() {
         const { user } = this.props
         return (
-            <div>
+            <div className="card">
                 <img src={this.state.img} alt="Card img"/>
-                <img src="/img/upload.png" alt="Logo"/>
+                <img className="card-logo" src="/img/upload.png" alt="Logo"/>
                 <h3>Association Pepita</h3>
-                {(this.props.showPending && user.relationship === "business") ? <div>
-                    <button>Accept</button>
-                    <button>Reject</button>
+                {(this.props.showPending && user.relationship === "business") ? <div className="accept-reject-container">
+                    <button className="button accept">Accept</button>
+                    <button className="button reject">Reject</button>
                 </div> : null }
             </div>
         )

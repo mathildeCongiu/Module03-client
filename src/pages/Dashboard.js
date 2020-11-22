@@ -19,14 +19,14 @@ class Dashboard extends Component {
     const { user } = this.props;
     console.log("user", user);
     return (
-      <div>
+      <div className="dashboard">
         <ProfileHeader /*user={user}*//>
 
-        {user.relationship === "business" ? <p>{user.pickup.day}</p> : null}
+        {user.relationship === "business" ? <p className="dashboard-pickup-day">| {user.pickup.day} |</p> : null}
 
-        <div>
-          <button onClick={() => this.toggleHandler()}>Collaborations</button>
-          <button onClick={() => this.toggleHandler()}>Pending</button>
+        <div className="toggle">
+          <button className="toggle-collaborations" onClick={() => this.toggleHandler()}>COLLABORATIONS</button>
+          <button className="toggle-pending" onClick={() => this.toggleHandler()}>PENDING</button>
         </div>
 
         <CardList showPending={this.state.showPending} />

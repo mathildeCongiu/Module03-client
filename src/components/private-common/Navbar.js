@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
 
 class Navbar extends Component {
@@ -7,26 +7,26 @@ class Navbar extends Component {
     const { user, logout, isLoggedin } = this.props;
     return (
       <nav className="navbar">
-        <Link to="/dashboard">
+        <NavLink className="link navbar-links" to="/dashboard" activeStyle="">
           <img src="/img/dashboard.png" alt="Dashboard" />
           <p>Dashboard</p>
-        </Link>
+        </NavLink>
         {user.relationship === "business" ? (
-          <Link to="/products">
+          <NavLink className="link navbar-links" to="/products" activeStyle="">
             <img src="/img/products.png" alt="Products" />
             <p>Products</p>
-          </Link>
+          </NavLink>
         ) : (
-          <Link to="/search">
+          <NavLink className="link navbar-links" to="/search" activeStyle="">
             <img src="/img/search.png" alt="Search" />
             <p>Search</p>
-          </Link>
+          </NavLink>
         )}
 
-        <Link to="/others">
+        <NavLink className="link navbar-links" to="/others" activeStyle="">
           <img src="/img/others.png" alt="Others" />
           <p>Others</p>
-        </Link>
+        </NavLink>
       </nav>
     );
   }
