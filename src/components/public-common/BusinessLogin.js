@@ -5,7 +5,7 @@ export class BusinessLogin extends Component {
     
     render() {
         return (
-            <div>
+            <div className="register-business">
                 <form onSubmit={this.props.handleFormSubmit}>
 
                

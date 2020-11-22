@@ -5,7 +5,7 @@ export class AssoLogin extends Component {
     
     render() {
         return (
-            <div>
+            <div className="register-asso">
                 <form onSubmit={this.props.handleFormSubmit}>
 
                

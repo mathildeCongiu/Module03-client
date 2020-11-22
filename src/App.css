@@ -1,0 +1,191 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+:root {
+    --background: #6546AA;
+    --secondary: #F4A548;
+    --clear: white;
+    --text: #696767
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/*Home Page*/
+.home {
+    background-color: var(--background);
+}
+
+.home > header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    /* background-image: url("../img/background.jpg"); */
+    background-color: white;
+    height: 30vh;
+    padding: 10px;
+}
+
+.home > header > h1 {
+    font-size: 14vw;
+    color: var(--text);
+}
+
+.home > header > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 25vw;
+    height: 9vh;
+    margin-bottom: 13px;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--text);
+}
+
+.header-link {
+    font-size: 4vw;
+    padding: 7px 7px 2px;
+}
+
+.header-link:last-of-type {
+    border: solid 1px var(--text);
+    border-radius: 7px;
+}
+
+.home main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 20px;
+}
+
+.home-sign-up-card {
+    margin: 20px 0 0;
+    background-color: var(--clear);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-sign-up-card > img {
+    width: 100%;
+    object-fit: cover;
+    height: 20vh;
+}
+
+.home-sign-up-card > p {
+    width: 90vw;
+    margin: 20px 0;
+    font-size: 3.8vw;
+    line-height: 1.4;
+}
+
+.button {
+    text-decoration: none;
+    background-color: var(--secondary);
+    color: var(--clear);
+    padding: 15px 30px;
+    margin-bottom: 20px;
+    /* vertical-align: middle;
+    display: table-cell; */
+    border-radius: 200px;
+}
+
+.home footer {
+    background-color: var(--secondary);
+    height: 6vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-link {
+    color: var(--clear)
+}
+
+/* Register pages */
+.register-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.register-tabs-container {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-tabs {
+    width: 100%;
+    height: 100%;
+    font-size: 5.5vw;
+    border: none;
+    color: var(--clear);
+    cursor: pointer;
+}
+
+.register-business {
+    background-color: var(--secondary);
+}
+
+.register-asso {
+    background-color: var(--background);
+}

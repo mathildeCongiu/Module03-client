@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import AssoSignUp from "../components/public-common/AssoSignUp";
 import BusinessSignUp from "../components/public-common/BusinessSignUp";
-import { withAuth } from '../lib/AuthProvider';
+import { withAuth } from "../lib/AuthProvider";
 
 class Signup extends Component {
   state = {
@@ -21,29 +21,12 @@ class Signup extends Component {
     typeName: "",
     pickupDate: "",
     pickupPlace: "",
-    isBusiness: true
+    isBusiness: true,
   };
 
-  handleFormSubmit = event => {
+  handleFormSubmit = (event) => {
     event.preventDefault();
-    const {       name,
-      email,
-      password,
-      logo,
-      street,
-      number,
-      flat,
-      city,
-      postcode,
-      country,
-      phoneNumber,
-      description,
-      typeName,
-      pickupDate,
-      pickupPlace, 
-    } = this.state;
-    
-    this.props.signup({       
+    const {
       name,
       email,
       password,
@@ -58,28 +41,66 @@ class Signup extends Component {
       description,
       typeName,
       pickupDate,
-      pickupPlace, 
+      pickupPlace,
+    } = this.state;
+
+    this.props.signup({
+      name,
+      email,
+      password,
+      logo,
+      street,
+      number,
+      flat,
+      city,
+      postcode,
+      country,
+      phoneNumber,
+      description,
+      typeName,
+      pickupDate,
+      pickupPlace,
     });
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
   toggleHandler = () => {
     this.setState({ isBusiness: !this.state.isBusiness });
-  }
+  };
   render() {
     return (
-      <div>
-        <div>
-        <button onClick={() => this.toggleHandler()}>Sign Up as a Business</button>
-        <button onClick={() => this.toggleHandler()}>Sign Up as an Asso</button>
+      <div className="register-page">
+        <div className="register-tabs-container">
+          <button
+            className="register-tabs register-business"
+            onClick={() => this.toggleHandler()}
+          >
+            Sign Up as a Business
+          </button>
+          <button
+            className="register-tabs register-asso"
+            onClick={() => this.toggleHandler()}
+          >
+            Sign Up as an Association
+          </button>
         </div>
-       { !this.state.isBusiness ? <AssoSignUp {...this.state} handleChange= {(e) => this.handleChange(e)} handleFormSubmit= {this.handleFormSubmit}/> :
-              <BusinessSignUp {...this.state} handleChange= {(e) => this.handleChange(e)} handleFormSubmit= {this.handleFormSubmit}/>}
-  
+        {!this.state.isBusiness ? (
+          <AssoSignUp
+            {...this.state}
+            handleChange={(e) => this.handleChange(e)}
+            handleFormSubmit={this.handleFormSubmit}
+          />
+        ) : (
+          <BusinessSignUp
+            {...this.state}
+            handleChange={(e) => this.handleChange(e)}
+            handleFormSubmit={this.handleFormSubmit}
+          />
+        )}
       </div>
     );
   }

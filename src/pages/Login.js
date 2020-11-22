@@ -2,47 +2,64 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import AssoLogin from "../components/public-common/AssoLogin";
 import BusinessLogin from "../components/public-common/BusinessLogin";
-import { withAuth } from '../lib/AuthProvider';
+import { withAuth } from "../lib/AuthProvider";
 
 class Login extends Component {
   state = {
     email: "",
     password: "",
-    isBusiness: true
+    isBusiness: true,
   };
 
-  handleFormSubmit = event => {
+  handleFormSubmit = (event) => {
     event.preventDefault();
-    const {      
+    const { email, password, isBusiness } = this.state;
+
+    this.props.login({
       email,
       password,
-      isBusiness
-    } = this.state;
-    
-    this.props.login({       
-      email,
-      password,
-    isBusiness});
+      isBusiness,
+    });
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
   toggleHandler = () => {
     this.setState({ isBusiness: !this.state.isBusiness });
-  }
+  };
   render() {
     return (
-      <div>
-        <div>
-        <button onClick={() => this.toggleHandler()}>Log In as a Business</button>
-        <button onClick={() => this.toggleHandler()}>Log In as an Asso</button>
+      <div className="register-page">
+        <div className="register-tabs-container">
+          <button
+            className="register-tabs register-business"
+            onClick={() => this.toggleHandler()}
+          >
+            Log In as a Business
+          </button>
+          <button
+            className="register-tabs register-asso"
+            onClick={() => this.toggleHandler()}
+          >
+            Log In as an Association
+          </button>
         </div>
-       { !this.state.isBusiness ? <AssoLogin {...this.state} handleChange= {(e) => this.handleChange(e)} handleFormSubmit= {(e) => this.handleFormSubmit(e)}/> :
-              <BusinessLogin {...this.state} handleChange= {(e) => this.handleChange(e)} handleFormSubmit= {(e) => this.handleFormSubmit(e)}/>}
-  
+        {!this.state.isBusiness ? (
+          <AssoLogin
+            {...this.state}
+            handleChange={(e) => this.handleChange(e)}
+            handleFormSubmit={(e) => this.handleFormSubmit(e)}
+          />
+        ) : (
+          <BusinessLogin
+            {...this.state}
+            handleChange={(e) => this.handleChange(e)}
+            handleFormSubmit={(e) => this.handleFormSubmit(e)}
+          />
+        )}
       </div>
     );
   }

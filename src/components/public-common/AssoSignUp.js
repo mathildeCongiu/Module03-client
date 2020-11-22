@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export class AssoSignUp extends Component {
   render() {
     return (
-      <div>
+      <div className="register-asso">
         <form onSubmit={this.props.handleFormSubmit}>
           <label>ASSO INFO</label>
           <input

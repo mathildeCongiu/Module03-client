@@ -5,7 +5,7 @@ import { withAuth } from "../../lib/AuthProvider";
 class BusinessSignUp extends Component {
   render() {
     return (
-      <div>
+      <div className="register-business">
         <form onSubmit={this.props.handleFormSubmit}>
           <label>BUSINESS INFO</label>
           <input
