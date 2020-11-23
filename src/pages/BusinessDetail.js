@@ -6,12 +6,13 @@ import ProfileHeader from "../components/private-common/ProfileHeader";
 
 class BusinessDetail extends Component {
   render() {
+    console.log(this.props.location.state)
     return (
       <div className="details-page asso-details">
         <Link className="back-button-details" to="">
           <img src="/img/delete.png" alt="Back" />{" "}
         </Link>
-        <ProfileHeader /*user={inventeduserfromfunction}*/ />
+        {/* <ProfileHeader selectedProfile={} /> */}
 
         <div className="details-info">
           <p>Description</p>

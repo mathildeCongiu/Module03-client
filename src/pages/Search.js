@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import CardList from "../components/private-common/CardList";
 import { withAuth } from "../lib/AuthProvider";
 import Navbar from "../components/private-common/Navbar";
+import assoFunc from "./../lib/asso-service"
 
 class Search extends Component {
   state = {
     areFiltersShown: false,
+    result: []
   };
   // onChangeHandler = (event) => {
   //     let value = event.target.value
@@ -19,10 +21,23 @@ class Search extends Component {
     });
   };
 
+  getBusinesses = async () => {
+    const result =  await assoFunc.searchBusinesses()
+      this.setState({
+      result
+  })
+  }
+
+  componentDidMount =  () => {
+      this.getBusinesses()
+      
+
+  }
 
   render() {
   
 
+    console.log(this.state.result, "LLamada al BackEnd")
     return (
       <div className="search-page">
         <div className="search-input">
@@ -62,7 +77,7 @@ class Search extends Component {
           </div>
         ) : null}
 
-        <CardList />
+        <CardList result= {this.state.result}/>
         <Navbar />
       </div>
     );

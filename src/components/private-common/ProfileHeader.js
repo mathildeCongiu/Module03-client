@@ -8,9 +8,9 @@ class ProfileHeader extends Component {
   };
 
   componentDidMount = () => {
-    const { user } = this.props;
-    if (user.relationship === "business") {
-      switch (user.type.name) {
+    const { selectedProfile } = this.props;
+    if (selectedProfile.relationship === "business") {
+      switch (selectedProfile.type.name) {
         case "fishmonger":
           this.setState({
             img: "/img/cards/fishmonger-SC.jpg"
@@ -50,12 +50,12 @@ class ProfileHeader extends Component {
   };
 
   render() {
-    const { user } = this.props;
+    const { selectedProfile } = this.props;
     return (
       <div className="profile-header">
         <img src={this.state.img} alt="Photo" />
         <img className="profile-logo" src="/img/upload.png" alt="Business Logo" />
-        <h2>{user.name}</h2>
+        <h2>{selectedProfile.name}</h2>
       </div>
     );
   }

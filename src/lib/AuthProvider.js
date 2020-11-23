@@ -10,7 +10,7 @@ const withAuth = (WrappedComponent) => {
     render() {
       return (
         <Consumer>
-          {({ login, signup, user, logout, isLoggedin, search }) => {
+          {({ login, signup, user, logout, isLoggedin, deleteUser }) => {
             return (
               <WrappedComponent
                 login={login}
@@ -18,7 +18,7 @@ const withAuth = (WrappedComponent) => {
                 user={user}
                 logout={logout}
                 isLoggedin={isLoggedin}
-                search= {search}
+                deleteUser = {deleteUser}
                 {...this.props}
               />
             );
@@ -75,24 +75,25 @@ class AuthProvider extends Component {
     }
   };
 
-  search = async() => {
+  deleteUser = async () => {
     try {
-      await asso.search();
-
+      await auth.deleteUser();
+      this.setState({ isLoggedin: false, user: null });
     } catch (error) {
       console.log(error);
     }
-  }
+  };
+
 
   render() {
     const { isLoading, isLoggedin, user } = this.state;
-    const { login, logout, signup, search } = this;
+    const { login, logout, signup, deleteUser } = this;
 
     return isLoading ? (
       <div>Loading</div>
     ) : (
       /* dentro del value del provider tendremos datos que estarán disponibles para todos los componentes <Consumer> */
-      <Provider value={{ isLoggedin, user, login, logout, signup, search }}>
+      <Provider value={{ isLoggedin, user, login, logout, signup, deleteUser }}>
         {this.props.children}
       </Provider>
     );

@@ -13,9 +13,9 @@ class ProductsList extends Component {
       <div className="products-list">
         <ul> 
         {/* hemos cambiado state por props para el css */}
-          {this.state.productsArr.map((element) => {
+          {this.state.productsArr.map((element, index) => {
             return (
-              <li>
+              <li key= {index}>
                 <ProductCard />
               </li>
             );

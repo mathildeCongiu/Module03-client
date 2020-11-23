@@ -73,6 +73,10 @@ class Auth {
     // return this.auth.get("/auth/me").then((response) => response.data);
   }
 
+  deleteUser() {
+    return this.auth.post("/delete-user", {}).then(({ data }) => data);
+  }
+
 }
 
 const axiosRequestFunctions = new Auth();

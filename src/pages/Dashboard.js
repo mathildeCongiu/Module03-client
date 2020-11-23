@@ -20,7 +20,7 @@ class Dashboard extends Component {
     console.log("user", user);
     return (
       <div className="dashboard">
-        <ProfileHeader /*user={user}*//>
+        <ProfileHeader selectedProfile={user}/>
 
         {user.relationship === "business" ? <p className="dashboard-pickup-day">| {user.pickup.day} |</p> : null}
 
@@ -29,7 +29,8 @@ class Dashboard extends Component {
           <button className="toggle-pending" onClick={() => this.toggleHandler()}>PENDING</button>
         </div>
 
-        <CardList showPending={this.state.showPending} />
+        {this.state.showPending ? <CardList result= {user.pendingPartnerships} showPending={this.state.showPending} /> : <CardList result= {user.partnerships} showPending={this.state.showPending} />}
+   
 
         <Navbar />
       </div>

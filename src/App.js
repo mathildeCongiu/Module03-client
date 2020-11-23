@@ -36,8 +36,8 @@ class App extends Component {
             <PrivateRoute exact path="/products/edit" component={EditProduct} />
             <PrivateRoute exact path="/others" component={Others} />
             <PrivateRoute exact path="/search" component={Search} />
-            <PrivateRoute exact path="/business-details" component={BusinessDetail} />
-            <PrivateRoute exact path="/association-details" component={AssoDetails} />
+            <PrivateRoute exact path= "/business-details/:id" component={BusinessDetail} />
+            <PrivateRoute exact path="/association-details/:id" component={AssoDetails} />
           </Switch>
         </div>
       </AuthProvider>
