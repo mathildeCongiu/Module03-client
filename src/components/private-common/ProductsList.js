@@ -4,19 +4,17 @@ import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
 
 class ProductsList extends Component {
-    state = {
-        productsArr: [1, 2, 3, 4, 5]
-    }
+
 
   render() {
+    console.log(this.props.productsArr)
     return (
       <div className="products-list">
         <ul> 
-        {/* hemos cambiado state por props para el css */}
-          {this.state.productsArr.map((element, index) => {
+          {this.props.productsArr.map((element, index) => {
             return (
               <li key= {index}>
-                <ProductCard />
+                <Link to={`/products/edit/${element._id}`}><ProductCard element= {element}/></Link>
               </li>
             );
           })}

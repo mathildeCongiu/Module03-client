@@ -4,18 +4,15 @@ import { Link } from "react-router-dom";
 import businessFunc from "./../lib/business-service"
 
 class AddProduct extends Component {
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-    const {
-      name,
-      typeName,
-   
-    } = this.state;
+  state = {
 
-    businessFunc.addNewProduct({
-      name,
-      typeName,
-    });
+  }
+
+  handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const { name, typeName } = this.state;
+
+    await businessFunc.addNewProduct(name, typeName );
   };
 
   handleChange = (event) => {
@@ -35,8 +32,9 @@ class AddProduct extends Component {
 
           <label>Type</label>
           <select name="typeName" onChange={(e) => this.handleChange(e) }>
-            <option value="fresh">Fresh food</option>
+            <option value="select">SELECT</option>
             <option value="can">Canned food</option>
+            <option value="fresh">Fresh food</option>
           </select>
           <input
             className="button add-edit-product-button"

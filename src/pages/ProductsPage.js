@@ -18,6 +18,9 @@ class ProductsPage extends Component {
     }
 
     render() {
+        console.log(this.state.productsArr)
+        const { user } = this.props
+        console.log(user.products, "PRODUCTS")
         return (
             <div className="products-page">
                 <h2>OUR PRODUCTS</h2>

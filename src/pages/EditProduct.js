@@ -1,26 +1,55 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
+import businessFunc from "./../lib/business-service";
 
 class EditProduct extends Component {
-    render() {
-        return (
-            <div>
-                <Link><img src="" alt="Back"/></Link>
-                <form>
-                    <label>Name</label>
-                    <input type="text" name="name" placeholder="TO DEFINE" />
+  state = {};
 
-                    <label>Type</label>
-                    <select name="productType" >
-                        <option value="fresh">Fresh food</option>
-                        <option value="can">Canned food</option>
-                    </select>
-                    <input type="submit" value="Edit Product"/>
-                </form>
-            </div>
-        )
-    }
+  handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const { name, typeName } = this.state;
+    console.log(this.props.match)
+    const { id } = this.props.match.params;
+
+    await businessFunc.editProduct(name, typeName, id);
+  };
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  handleDeleteProduct =  async () => {
+    const { id } = this.props.match.params;
+    await businessFunc.deleteProduct(id);
+  }
+  render() {
+    return (
+      <div className="add-edit-product">
+        <Link to="/products" className="back-button">
+          <img src="/img/delete.png" alt="Back" />
+        </Link>
+        <form className="add-edit-form" onSubmit={this.handleFormSubmit}>
+          <label>Name</label>
+          <input
+            type="text"
+            name="name"
+            placeholder= {this.props.name}
+            onChange={(e) => this.handleChange(e)}
+          />
+
+          <label>Type</label>
+          <select name="productType" onChange={(e) => this.handleChange(e)}>
+            <option value="fresh">Fresh food</option>
+            <option value="can">Canned food</option>
+          </select>
+          <input type="submit" value="Edit Product" className="button add-edit-product-button"/>
+        </form>
+        <button className="button add-edit-product-button" onClick= {this.handleDeleteProduct}>Delete Product</button>
+      </div>
+    );
+  }
 }
 
-export default withAuth(EditProduct)
+export default withAuth(EditProduct);
