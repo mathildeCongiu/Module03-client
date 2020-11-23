@@ -15,6 +15,7 @@ class Dashboard extends Component {
     this.setState({ showPending: !this.state.showPending });
   };
 
+  // componentDidUpdate
   render() {
     const { user } = this.props;
     console.log("user", user);

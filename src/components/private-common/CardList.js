@@ -12,7 +12,7 @@ class CardList extends Component {
           {this.props.result.map((element) => {
             return (
               <li key={element._id}>
-                <Card {...element} />
+                <Card element= {element} showPending={this.props.showPending}/>
               </li>
             );
           })}

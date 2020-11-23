@@ -9,9 +9,15 @@ class PrivateAsso {
   }
 
   searchBusinesses() {
-    return this.assoFunc.get("/association/search").then(({ data }) => data);
+    return this.assoFunc.get("/association/search").then(({ data }) => data); 
+  }
 
-    
+  postRequest(id) {
+    return this.assoFunc.post(`/association/business/${id}`).then(({ data }) => data)
+  }
+
+  getBusiness(id) {
+    return this.assoFunc.get(`/association/business/${id}`).then(({ data }) => data)
   }
 }
 

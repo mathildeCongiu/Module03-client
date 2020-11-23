@@ -3,35 +3,44 @@ import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
 import ProductsList from "../components/private-common/ProductsList";
 import ProfileHeader from "../components/private-common/ProfileHeader";
+import assoFunc from "../lib/asso-service"
 
 class BusinessDetail extends Component {
-  render() {
-    console.log(this.props.location.state)
+
+  handleRequest = async () => {
+    const { _id} = this.props.location.state.element
+    console.log(_id, "where are you darlingh")
+    await assoFunc.postRequest(_id)
+  }
+ 
+  render() { 
+    const { description, address, phoneNumber, pickup} = this.props.location.state.element
+    console.log(this.props.location.state.element)
     return (
       <div className="details-page asso-details">
         <Link className="back-button-details" to="">
           <img src="/img/delete.png" alt="Back" />{" "}
         </Link>
-        {/* <ProfileHeader selectedProfile={} /> */}
+        <ProfileHeader selectedProfile={this.props.location.state.element} />
 
         <div className="details-info">
-          <p>Description</p>
+          <p>{description}</p>
 
           <h3>PICK UP</h3>
           <h4>Adress</h4>
-          <p>Lorem Ipsum, 19, <br/> 08015 BARCELONA</p>
+          <p>{address.street}, {address.number} <br/> {address.postcode} {address.city} <br/> {address.country}</p>
 
           <h4>Phone number</h4>
-          <p>654654654</p>
+          <p>{phoneNumber}</p>
 
           <h4>Schedule</h4>
-          <p>WED 20h</p>
+          <p>{pickup.day}</p>
 
           <h3>PRODUCTS</h3>
           <ProductsList />
         </div>
 
-        <button className="button add-edit-product-button">Request partnership</button>
+        <button onClick={this.handleRequest} className="button add-edit-product-button">Request partnership</button>
       </div>
     );
   }

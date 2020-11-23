@@ -1,20 +1,40 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
+import businessFunc from "./../lib/business-service"
 
 class AddProduct extends Component {
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    const {
+      name,
+      typeName,
+   
+    } = this.state;
+
+    businessFunc.addNewProduct({
+      name,
+      typeName,
+    });
+  };
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
   render() {
     return (
       <div className="add-edit-product">
         <Link to="/products" className="back-button">
           <img src="/img/delete.png" alt="Back" />
         </Link>
-        <form className="add-edit-form">
+        <form className="add-edit-form" onSubmit={this.handleFormSubmit}>
           <label>Name</label>
-          <input type="text" name="name" />
+          <input type="text" name="name" onChange={(e) => this.handleChange(e) }/>
 
           <label>Type</label>
-          <select name="productType">
+          <select name="typeName" onChange={(e) => this.handleChange(e) }>
             <option value="fresh">Fresh food</option>
             <option value="can">Canned food</option>
           </select>

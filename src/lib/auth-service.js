@@ -74,7 +74,7 @@ class Auth {
   }
 
   deleteUser() {
-    return this.auth.post("/delete-user", {}).then(({ data }) => data);
+    return this.auth.delete("/delete-user", {}).then(({ data }) => data);
   }
 
 }

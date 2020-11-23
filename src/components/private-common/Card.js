@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
 import { withAuth } from '../../lib/AuthProvider';
 import { Link } from 'react-router-dom'
-
+import businessFunc from "../../lib/business-service"
 
 class Card extends Component {
     state = {
         img: "",
-        element: {
-            name: this.props.name, 
-            address: this.props.address,
-            type: this.props.type}
     }
     componentDidMount = () => {
-        const { relationship, type } = this.props;
+        const { relationship, type } = this.props.element;
         if (relationship === "business") {
           switch (type.name) {
             case "fishmonger":
@@ -52,18 +48,31 @@ class Card extends Component {
           })
         }
       };
+
+      handleAccept = async () => {
+        const { _id} = this.props.element
+          await businessFunc.accept(_id)
+      }
+
+      handleReject = async (id) => {
+        const { _id} = this.props.element
+        await businessFunc.reject(_id)
+    }
     
     render() {
-        const { user, name, pickup, _id} = this.props
+        const { user, element} = this.props
+        console.log(element, "Holaaaa")
+    
         return (
             <div className="card">
-                <Link className="card-img-link" to={{pathname:`/business-details/${_id}`, state: {element: this.state.element}}} ><img src={this.state.img} alt="Card img"/></Link>
+                {user.relationship === "business" ? <Link className="card-img-link" to={{pathname: `/association-details/${element._id}`, state: {element}}}><img src={this.state.img} alt="Card img"/></Link> : 
+                <Link className="card-img-link" to={{pathname: `/business-details/${element._id}`, state: {element}}}><img src={this.state.img} alt="Card img"/></Link> }
                 <img className="card-logo" src="/img/upload.png" alt="Logo"/>
-                <h3>{name}</h3>
-                {(user.relationship === "association") ? <p>{pickup.day}</p> : null }
+                <h3>{element.name}</h3>
+                {(user.relationship === "association") ? <p>{element.pickup.day}</p> : null }
                 {(this.props.showPending && user.relationship === "business") ? <div className="accept-reject-container">
-                    <button className="button accept">Accept</button>
-                    <button className="button reject">Reject</button>
+                    <button onClick = {this.handleAccept} className="button accept">Accept</button>
+                    <button onClick = {this.handleReject} className="button reject">Reject</button>
                 </div> : null }
             </div>
         )
