@@ -68,22 +68,31 @@ class Signup extends Component {
     this.setState({ [name]: value });
   };
 
-  toggleHandler = () => {
-    this.setState({ isBusiness: !this.state.isBusiness });
+  // toggleHandler = () => {
+  //   this.setState({ isBusiness: !this.state.isBusiness });
+  // };
+
+  toggleHandlerBusiness = () => {
+    this.setState({ isBusiness: true });
   };
+
+  toggleHandlerAsso = () => {
+    this.setState({ isBusiness: false });
+  };
+
   render() {
     return (
       <div className="register-page">
         <div className="register-tabs-container">
           <button
             className="register-tabs register-business"
-            onClick={() => this.toggleHandler()}
+            onClick={() => this.toggleHandlerBusiness()}
           >
             Sign Up as a Business
           </button>
           <button
             className="register-tabs register-asso"
-            onClick={() => this.toggleHandler()}
+            onClick={() => this.toggleHandlerAsso()}
           >
             Sign Up as an Association
           </button>

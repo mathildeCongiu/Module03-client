@@ -11,26 +11,25 @@ class ProductsPage extends Component {
   };
 
   componentDidMount = () => {
-     this.getUserData()    
-};
+    this.getUserData();
+  };
 
-shouldComponentUpdate = async (nextProps, nextState) => {
+  shouldComponentUpdate = async (nextProps, nextState) => {
+    const newUser = await auth.me();
 
-    const newUser = await auth.me()
-
-    if(newUser.products.length !== this.state.productsArr.length) {
-        return true
+    if (newUser.products.length !== this.state.productsArr.length) {
+      return true;
     }
 
-    return false
-  }
+    return false;
+  };
 
   getUserData = async () => {
-      const newUser = await auth.me()
-      this.setState({
-        productsArr: newUser.products,
-      });
-    }
+    const newUser = await auth.me();
+    this.setState({
+      productsArr: newUser.products,
+    });
+  };
 
   render() {
     // console.log(this.state.productsArr)

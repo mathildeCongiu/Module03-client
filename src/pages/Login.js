@@ -27,22 +27,31 @@ class Login extends Component {
     this.setState({ [name]: value });
   };
 
-  toggleHandler = () => {
-    this.setState({ isBusiness: !this.state.isBusiness });
+  // toggleHandler = () => {
+  //   this.setState({ isBusiness: !this.state.isBusiness });
+  // };
+
+  toggleHandlerBusiness = () => {
+    this.setState({ isBusiness: true });
   };
+
+  toggleHandlerAsso = () => {
+    this.setState({ isBusiness: false });
+  };
+
   render() {
     return (
       <div className="register-page">
         <div className="register-tabs-container">
           <button
             className="register-tabs register-business"
-            onClick={() => this.toggleHandler()}
+            onClick={() => this.toggleHandlerBusiness()}
           >
             Log In as a Business
           </button>
           <button
             className="register-tabs register-asso"
-            onClick={() => this.toggleHandler()}
+            onClick={() => this.toggleHandlerAsso()}
           >
             Log In as an Association
           </button>
