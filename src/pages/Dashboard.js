@@ -18,7 +18,7 @@ class Dashboard extends Component {
   // componentDidUpdate
   render() {
     const { user } = this.props;
-    console.log("user", user);
+    // console.log("user", user);
     return (
       <div className="dashboard">
         <ProfileHeader selectedProfile={user}/>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
+import auth from "../lib/auth-service";
 import { Link } from "react-router-dom";
 import businessFunc from "./../lib/business-service"
 
@@ -11,8 +12,9 @@ class AddProduct extends Component {
   handleFormSubmit = async (event) => {
     event.preventDefault();
     const { name, typeName } = this.state;
-
+    // this.props.location.state.getUserData()
     await businessFunc.addNewProduct(name, typeName );
+    
   };
 
   handleChange = (event) => {

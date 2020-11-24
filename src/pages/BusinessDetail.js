@@ -37,7 +37,7 @@ class BusinessDetail extends Component {
           <p>{pickup.day}</p>
 
           <h3>PRODUCTS</h3>
-          <ProductsList />
+          <ProductsList productsArr={this.props.location.state.element.products} />
         </div>
 
         <button onClick={this.handleRequest} className="button add-edit-product-button">Request partnership</button>
