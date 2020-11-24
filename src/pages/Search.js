@@ -27,15 +27,23 @@ class Search extends Component {
   };
 
   selectInput = (event) => {
-    let value = event.target.value;
-    console.log(value, "value");
-    const businessCopy = [...this.state.result];
-    const filteredArr = businessCopy.filter((elem) => {
-      return elem.type.name === value;
-    });
-    this.setState({
-      filteredResult: filteredArr,
-    });
+    if (event.target.checked) {
+      let value = event.target.value;
+      console.log(value)
+      const businessCopy = [...this.state.result];
+      const filteredArr = businessCopy.filter((elem) => {
+        return elem.type.name === value;
+      });
+      this.setState({
+        filteredResult: filteredArr,
+        // filteredResult: [...this.state.filteredResult, ...filteredArr],
+      });
+    } 
+    else {
+      this.setState({
+        filteredResult: this.state.result,
+      });
+    }
   };
 
   showFilters = () => {
@@ -104,7 +112,7 @@ class Search extends Component {
           </div>
         ) : null}
 
-        <CardList result={this.state.filteredResult} />
+        <CardList result={this.state.filteredResult} showPending={false} />
         <Navbar />
       </div>
     );

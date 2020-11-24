@@ -9,24 +9,28 @@ class ProductsList extends Component {
     // console.log(nextProps, nextState);
     // console.log(this.props, this.state);
 
-    const newUser = await auth.me()
-console.log(newUser.products)
-    if(newUser.products.length !== this.props.productsArr.length) {
-        return true
+    const newUser = await auth.me();
+    // console.log(newUser.products);
+    if (newUser.products.length !== this.props.productsArr.length) {
+      return true;
     }
 
-    return false
-  }
+    return false;
+  };
 
   render() {
     // console.log(this.props.productsArr)
+    const { user } = this.props
     return (
       <div className="products-list">
-        <ul> 
+        <ul>
           {this.props.productsArr.map((element, index) => {
             return (
-              <li key= {index}>
-                <Link to={`/products/edit/${element._id}`}><ProductCard element= {element}/></Link>
+              <li key={index}>
+              {user.relationship === "business" ? <Link to={`/products/edit/${element._id}`}>
+                  <ProductCard element={element} />
+                </Link> : <ProductCard element={element} /> }
+                
               </li>
             );
           })}

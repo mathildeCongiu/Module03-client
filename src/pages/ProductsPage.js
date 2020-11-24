@@ -15,8 +15,6 @@ class ProductsPage extends Component {
 };
 
 shouldComponentUpdate = async (nextProps, nextState) => {
-    console.log(nextProps, nextState);
-    console.log(this.props, this.state);
 
     const newUser = await auth.me()
 

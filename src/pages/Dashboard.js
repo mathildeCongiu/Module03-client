@@ -11,11 +11,17 @@ class Dashboard extends Component {
     showPending: false,
   };
 
+  // getUserData = async () => {
+  //   const newUser = await auth.me()
+  //   this.setState({
+  //     user: newUser,
+  //   });
+  // }
+
   toggleHandler = () => {
     this.setState({ showPending: !this.state.showPending });
   };
 
-  // componentDidUpdate
   render() {
     const { user } = this.props;
     // console.log("user", user);

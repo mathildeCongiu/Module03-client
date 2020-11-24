@@ -3,6 +3,7 @@ import { withAuth } from "../lib/AuthProvider";
 import auth from "../lib/auth-service";
 import { Link } from "react-router-dom";
 import businessFunc from "./../lib/business-service"
+import { Redirect } from "react-router-dom"; 
 
 class AddProduct extends Component {
   state = {
@@ -14,7 +15,7 @@ class AddProduct extends Component {
     const { name, typeName } = this.state;
     // this.props.location.state.getUserData()
     await businessFunc.addNewProduct(name, typeName );
-    
+    this.props.history.goBack()
   };
 
   handleChange = (event) => {

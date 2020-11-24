@@ -13,6 +13,7 @@ class EditProduct extends Component {
     const { id } = this.props.match.params;
 
     await businessFunc.editProduct(name, typeName, id);
+    this.props.history.goBack()
   };
 
   handleChange = (event) => {
@@ -23,6 +24,7 @@ class EditProduct extends Component {
   handleDeleteProduct =  async () => {
     const { id } = this.props.match.params;
     await businessFunc.deleteProduct(id);
+    this.props.history.goBack()
   }
   render() {
     return (

@@ -11,11 +11,12 @@ class BusinessDetail extends Component {
     const { _id} = this.props.location.state.element
     console.log(_id, "where are you darlingh")
     await assoFunc.postRequest(_id)
+    this.props.history.goBack();
   }
  
   render() { 
     const { description, address, phoneNumber, pickup} = this.props.location.state.element
-    console.log(this.props.location.state.element)
+    // console.log(this.props.history)
     return (
       <div className="details-page asso-details">
         <Link className="back-button-details" to="">
