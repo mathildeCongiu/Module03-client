@@ -68,14 +68,14 @@ class Dashboard extends Component {
           <button
           // { this.state.showPending ? return (className="toggle-collaborations") : return (className="toggle-collaborations toggle-active") }
             className="toggle-collaborations"
-            style={this.state.showPending ? {backgroundColor:"orange"} : null }
+            style={this.state.showPending ? {backgroundColor:"white", color: "grey"} : null }
             onClick={() => this.toggleHandlerCollab()}
           >
             COLLABORATIONS
           </button>
           <button
             className="toggle-pending"
-            style={!this.state.showPending ? {backgroundColor:"orange"} : null }
+            style={!this.state.showPending ? {backgroundColor:"white", color: "grey"} : null }
             onClick={() => this.toggleHandlerPending()}
           >
             PENDING

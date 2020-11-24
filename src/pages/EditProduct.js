@@ -34,7 +34,8 @@ class EditProduct extends Component {
         </Link>
         <form className="add-edit-form" onSubmit={this.handleFormSubmit}>
           <label>Name</label>
-          <input
+          <input 
+           className="add-edit-input"
             type="text"
             name="name"
             placeholder= {this.props.name}
@@ -42,13 +43,13 @@ class EditProduct extends Component {
           />
 
           <label>Type</label>
-          <select name="productType" onChange={(e) => this.handleChange(e)}>
+          <select className= "select-input" name="productType" onChange={(e) => this.handleChange(e)}>
             <option value="fresh">Fresh food</option>
             <option value="can">Canned food</option>
           </select>
           <input type="submit" value="Edit Product" className="button add-edit-product-button"/>
         </form>
-        <button className="button add-edit-product-button" onClick= {this.handleDeleteProduct}>Delete Product</button>
+        <button className="button add-edit-product-button delete-button" onClick= {this.handleDeleteProduct}>Delete Product</button>
       </div>
     );
   }

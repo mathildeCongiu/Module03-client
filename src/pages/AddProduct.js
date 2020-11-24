@@ -31,10 +31,10 @@ class AddProduct extends Component {
         </Link>
         <form className="add-edit-form" onSubmit={this.handleFormSubmit}>
           <label>Name</label>
-          <input type="text" name="name" onChange={(e) => this.handleChange(e) }/>
+          <input className="add-edit-input" type="text" name="name" onChange={(e) => this.handleChange(e) }/>
 
           <label>Type</label>
-          <select name="typeName" onChange={(e) => this.handleChange(e) }>
+          <select className= "select-input" name="typeName" onChange={(e) => this.handleChange(e) }>
             <option value="select">SELECT</option>
             <option value="can">Canned food</option>
             <option value="fresh">Fresh food</option>

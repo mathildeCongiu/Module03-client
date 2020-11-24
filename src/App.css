@@ -47,15 +47,19 @@ table {
 	border-spacing: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 :root {
-    --background: #6546AA;
-    --secondary: #F4A548;
+    --background: #E6E6E3;
+    --secondary:#6546AA;
     --clear: white;
     --text: #696767
 }
 
 body {
-    font-family: Helvetica, Arial, sans-serif;
+    background-color: var(--background);
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
 /*Home Page*/
@@ -96,7 +100,7 @@ body {
 
 .header-link {
     font-size: 4vw;
-    padding: 7px 7px 2px;
+    padding: 7px 4px;
     color: var(--text);
 }
 
@@ -132,6 +136,7 @@ body {
     margin: 20px 0;
     font-size: 3.8vw;
     line-height: 1.4;
+    color: var(--text);
 }
 
 .button {
@@ -158,11 +163,14 @@ body {
 }
 
 /* Register pages */
+
 .register-page {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    width:100%;
+    height: 100vh;
 }
 
 .register-tabs-container {
@@ -172,7 +180,9 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
+
 
 .register-tabs {
     width: 100%;
@@ -189,6 +199,7 @@ body {
 
 .register-asso {
     background-color: var(--background);
+    color: var(--secondary)
 }
 
 .register-form {
@@ -203,6 +214,10 @@ body {
     color: var(--clear);
     font-size: 4.5vw;
     margin: 10px 0;
+}
+
+.register-asso label {
+    color: var(--secondary) 
 }
 
 .register-form > input {
@@ -232,6 +247,11 @@ body {
 .upload-logo p {
     color: var(--clear);
     font-size: 4.5vw;
+    
+}
+
+.register-asso .upload-logo p {
+    color: var(--secondary) 
 }
 
 .register-form textarea {
@@ -262,18 +282,18 @@ body {
 }
 
 .address-city {
-    /* box-sizing: border-box;
+    box-sizing: border-box;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center; */
+    align-items: center;
     margin-bottom: 20px;
 }
 
 .address-city > input {
     display: inline;
-    /* width: 30vw; */
+    width: 30vw;
 }
 
 .date-input {
@@ -283,15 +303,20 @@ body {
 .register-form p {
     color: var(--clear);
     font-size: 4.5vw;
-    margin-bottom: 20px;
+}
+
+.register-asso .register-form p {
+    color: var(--secondary);
 }
 
 .register-form p > span {
     font-weight: 900;
 }
 
+
 .main-color-button {
     background-color: var(--background);
+    color:  var(--secondary);
 }
 
 .input-button {
@@ -313,7 +338,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: grey;
+    background-color: var(--secondary);
     position: fixed;
     bottom: 0;
     z-index: 3;
@@ -372,14 +397,14 @@ body {
 
 .profile-header h2 {
     font-size: 5vw;
-    color: var(--clear);
+    color: var(--secondary);
     font-weight: 900;
     margin-bottom: 20px;
     text-transform: uppercase;
 }
 
 .dashboard-pickup-day {
-    color: var(--clear);
+    color: var(--secondary);
     margin-bottom: 30px;
     font-size: 4.5vw;
 }
@@ -398,7 +423,9 @@ body {
     padding: 10px 0;
     font-size: 3.5vw;
     border: solid 1px var(--text);
-    cursor: pointer
+    cursor: pointer;
+    background-color: var(--secondary);
+    color: white
 }
 
 .toggle-collaborations {
@@ -434,7 +461,7 @@ body {
     border-radius: 20px;
     margin-top: 25px;
     position: relative;
-    /* box-shadow: 6 6 10 grey; */
+    box-shadow: 3px 3px 10px grey;
 }
 
 .card-img-link img{
@@ -458,6 +485,13 @@ body {
     padding: 20px;
     font-size: 5vw;
     color: var(--text);
+}
+
+.card p {
+    color: var(--secondary);
+    font-size: 4.5vw;
+    padding: 5px 20px 20px ;
+    align-self: flex-start;
 }
 
 .accept-reject-container {
@@ -494,7 +528,7 @@ body {
 
 .products-page > h2 {
     align-self: flex-start;
-    color: var(--clear);
+    color: var(--secondary);
     font-size: 5vw;;
 }
 
@@ -525,6 +559,7 @@ body {
     width: 80vw;
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 3px 3px 10px grey;
 }
 
 .product-card > img {
@@ -534,6 +569,8 @@ body {
 
 .product-card > h3 {
     font-size: 5vw;
+    color: var(--text)
+    
 }
 
 .add-edit-product {
@@ -541,8 +578,6 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: var(--background);
-    height: 100vh;
 }
 
 .back-button {
@@ -560,23 +595,37 @@ body {
 .add-edit-form > label {
     text-transform: uppercase;
     font-size: 5vw;
-    color: var(--clear);
+    color: var(--secondary);
     margin: 20px 0 10px;
 }
 
 .add-edit-product-button {
-    margin: 50px;
+    margin: 50px 30px;
     align-self: center;
     border: none;
+    width: 200px
 }
 
+.add-edit-input {
+    width: 100%;
+}
+
+
+.select-input{
+height: 30px;
+width: 40vw;
+}
+
+.delete-button {
+    margin-top: 0;
+    background-color: #B5086B;
+}
 /* Search page */
 .search-page {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-self: center;
-    background-color: var(--background);
 }
 
 .search-input {
@@ -588,7 +637,7 @@ body {
 }
 
 .search-input > label {
-    color: var(--clear);
+    color: var(--secondary);
     font-size: 5vw;
     margin-bottom: 20px;
 }
@@ -602,7 +651,7 @@ body {
     width: 20vw;
     padding: 5px;
     margin-left: 20px;
-    background-color: var(--clear);
+    background-color: var(--secondary);
     color: var(--background);
     cursor: pointer;
 }
@@ -617,7 +666,7 @@ body {
     padding: 5px 0;
     width: 38vw;
     font-size: 4.5vw;
-    color: var(--clear);
+    color: var(--text);
 }
 
 .filter-options input {
@@ -626,7 +675,6 @@ body {
 
 /* Details page  */
 .details-page {
-    background-color: var(--background);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -651,28 +699,61 @@ body {
     color: var(--text);
     padding: 8px;
     width: 90%;
+    min-height: 10vh;
     border-radius: 5px;
     margin-bottom: 30px;
 }
 
-.details-info > h3, h4, p {
-    color: var(--clear);
+.details-info > h3 {
+    color: var(--secondary);
     font-size: 5vw;
-    margin-bottom: 10px;
+    margin: 20px 10px 5px;
+
 }
 
-.details-info > h4, p {
+.details-info > h4,.details-info >  p {
     font-size: 4.5vw;
+    color: var(--text);
+    margin: 20px 10px 0; 
 }
 
+.details-info > h4 {
+    font-weight: 900;
+}
 .details-info > p {
     margin-bottom: 20px;
 }
 
 .details-page > button {
     align-self: center;
+    bottom: -10px
 }
 
 .asso-details {
     height: 100vh;
+}
+
+/* OTHERS */ 
+
+.others-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.others-link {
+    color: var(--secondary);
+    margin: 20px;
+    font-size: 4.5vw
+}
+
+.button-others {
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 4.5vw
+}
+
+hr {
+    border: solid 1px var(--secondary); 
+    width: 90vw
 }

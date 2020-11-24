@@ -16,7 +16,7 @@ export class AssoLogin extends Component {
           <input
             type="password"
             name="password"
-            placeholder="Password Asso"
+            placeholder="Password"
             value={this.props.password}
             onChange={(e) => this.props.handleChange(e)}
           />

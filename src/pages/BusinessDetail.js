@@ -41,7 +41,7 @@ class BusinessDetail extends Component {
           <ProductsList productsArr={this.props.location.state.element.products} />
         </div>
 
-        <button onClick={this.handleRequest} className="button add-edit-product-button">Request partnership</button>
+        <button onClick={this.handleRequest} className="button add-edit-product-button button-create-product">Request partnership</button>
       </div>
     );
   }
