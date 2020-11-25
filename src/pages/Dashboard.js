@@ -60,11 +60,11 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <ProfileHeader selectedProfile={userUpdated} />
-          <div className="button-and-filtered-list">
         {userUpdated.relationship === "business" ? (
           <p className="dashboard-pickup-day">| {userUpdated.pickup.day} {userUpdated.pickup.hour} |</p>
         ) : null}
 
+              <div className="button-and-filtered-list">
         <div className="toggle">
           <button
           // { this.state.showPending ? return (className="toggle-collaborations") : return (className="toggle-collaborations toggle-active") }
