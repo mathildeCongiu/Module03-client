@@ -24,21 +24,35 @@ class BusinessDetail extends Component {
         </Link>
         <ProfileHeader selectedProfile={this.props.location.state.element} />
 
-        <div className="details-info">
-          <p>{description}</p>
+        <div className= "description-container">
+          <div className="details-info">
+            <p >{description}</p>
+            <div className= "details-less-description">
+              <h3>PICK UP</h3>
+              <div className= "sub-details-list">
+                <div>
+                  <h4>Adress</h4>
+                  <p>{address.street}, {address.number} <br/> {address.postcode} {address.city} <br/> {address.country}</p>
 
-          <h3>PICK UP</h3>
-          <h4>Adress</h4>
-          <p>{address.street}, {address.number} <br/> {address.postcode} {address.city} <br/> {address.country}</p>
+                </div>
+                <div>
+                  <h4>Phone number</h4>
+                  <p>{phoneNumber}</p>
+                </div>
+                <div>
+                  <h4>Schedule</h4>
+                  <p>{pickup.day} {pickup.hour}</p>
+                </div>
+              </div>
 
-          <h4>Phone number</h4>
-          <p>{phoneNumber}</p>
+            </div>
+            <div className="details-products">
+              <h3>PRODUCTS</h3>
+              <ProductsList productsArr={this.props.location.state.element.products} />
 
-          <h4>Schedule</h4>
-          <p>{pickup.day} {pickup.hour}</p>
-
-          <h3>PRODUCTS</h3>
-          <ProductsList productsArr={this.props.location.state.element.products} />
+            </div>
+              
+            </div>
         </div>
 
         <button onClick={this.handleRequest} className="button add-edit-product-button button-create-product">Request partnership</button>

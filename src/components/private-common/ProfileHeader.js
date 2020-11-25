@@ -54,8 +54,10 @@ class ProfileHeader extends Component {
     return (
       <div className="profile-header">
         <img src={this.state.img} alt="Photo" />
-        <img className="profile-logo" src={selectedProfile.logo} alt="Business Logo" />
-        <h2>{selectedProfile.name}</h2>
+        <div className="profile-header-description">
+          <img className="profile-logo" src={selectedProfile.logo} alt="Business Logo" />
+          <h2>{selectedProfile.name}</h2>
+        </div>
       </div>
     );
   }

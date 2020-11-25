@@ -43,9 +43,10 @@ class EditProduct extends Component {
           />
 
           <label>Type</label>
-          <select className= "select-input" name="productType" onChange={(e) => this.handleChange(e)}>
-            <option value="fresh">Fresh food</option>
+          <select className= "select-input" name="typeName" onChange={(e) => this.handleChange(e) }>
+            <option value="select">SELECT</option>
             <option value="can">Canned food</option>
+            <option value="fresh">Fresh food</option>
           </select>
           <input type="submit" value="Edit Product" className="button add-edit-product-button"/>
         </form>

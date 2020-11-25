@@ -6,10 +6,13 @@ function Home() {
   return (
     <div className="home">
       <header >
-        <h1>VOLUNT' HERO</h1>
-        <div>
-          <Link className="header-link link" to="/login">Log In</Link>
-          <Link className="header-link link" to="/signup">Sign Up</Link>
+        <img src="img/background.jpg" alt=""/>
+        <div className="home-header-text">
+          <h1>VOLUNT' HERO</h1>
+          <div>
+            <Link className="header-link link" to="/login">Log In</Link>
+            <Link className="header-link link" to="/signup">Sign Up</Link>
+          </div>
         </div>
       </header>
 

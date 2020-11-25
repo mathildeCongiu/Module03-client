@@ -60,7 +60,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <ProfileHeader selectedProfile={userUpdated} />
-
+          <div className="button-and-filtered-list">
         {userUpdated.relationship === "business" ? (
           <p className="dashboard-pickup-day">| {userUpdated.pickup.day} {userUpdated.pickup.hour} |</p>
         ) : null}
@@ -99,6 +99,8 @@ class Dashboard extends Component {
         )} */}
 
         {this.renderLists()}
+
+          </div>
         {/* {this.state.userUpdated.partnerships && !userUpdated.partnerships ? (<p>You don’t have partnership yet. Browse your first one <span>NOW!</span></p>) : null }  */}
         <Navbar />
       </div>
