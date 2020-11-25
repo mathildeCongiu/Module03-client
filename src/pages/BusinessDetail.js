@@ -35,7 +35,7 @@ class BusinessDetail extends Component {
           <p>{phoneNumber}</p>
 
           <h4>Schedule</h4>
-          <p>{pickup.day}</p>
+          <p>{pickup.day} {pickup.hour}</p>
 
           <h3>PRODUCTS</h3>
           <ProductsList productsArr={this.props.location.state.element.products} />

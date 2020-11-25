@@ -90,7 +90,7 @@ class Card extends Component {
         <img className="card-logo" src={element.logo} alt="Logo" />
         <h3>{element.name}</h3>
         {user.relationship === "association" ? (
-          <p>{element.pickup.day}</p>
+          <p>{element.pickup.day} {element.pickup.hour}</p>
         ) : null}
         {this.props.showPending && user.relationship === "business" ? (
           <div className="accept-reject-container">

@@ -62,7 +62,7 @@ class Dashboard extends Component {
         <ProfileHeader selectedProfile={userUpdated} />
 
         {userUpdated.relationship === "business" ? (
-          <p className="dashboard-pickup-day">| {userUpdated.pickup.day} |</p>
+          <p className="dashboard-pickup-day">| {userUpdated.pickup.day} {userUpdated.pickup.hour} |</p>
         ) : null}
 
         <div className="toggle">
