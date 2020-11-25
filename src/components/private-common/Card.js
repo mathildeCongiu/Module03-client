@@ -87,7 +87,7 @@ class Card extends Component {
             <img src={this.state.img} alt="Card img" />
           </Link>
         )}
-        <img className="card-logo" src="/img/upload.png" alt="Logo" />
+        <img className="card-logo" src={element.logo} alt="Logo" />
         <h3>{element.name}</h3>
         {user.relationship === "association" ? (
           <p>{element.pickup.day}</p>

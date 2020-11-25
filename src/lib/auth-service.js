@@ -8,7 +8,7 @@ class Auth {
     });
   }
 
-  signup({  name, email, password, logo, street, number,  flat,  city, postcode,  country,  phoneNumber,  description, typeName,  pickupDate, pickupPlace }) {
+  signup({  name, email, password, logo, street, number,  flat,  city, postcode,  country,  phoneNumber,  description, typeName,  pickupDate, pickupPlace, pickupHour }) {
     if(typeName) {
       return this.auth
         .post("/auth/signup/business", {  
@@ -26,7 +26,9 @@ class Auth {
           description,
           typeName,
           pickupDate,
-          pickupPlace
+          pickupPlace,
+          pickupHour
+
         })
         .then(({ data }) => data);
     }
@@ -77,6 +79,16 @@ class Auth {
     return this.auth.delete("/delete-user", {}).then(({ data }) => data);
   }
 
+  handleUpload = async (theFile) => {
+    console.log("file in service: ", theFile);
+
+    try {
+      const res = await this.auth.post("/api/upload", theFile);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 const axiosRequestFunctions = new Auth();

@@ -11,7 +11,7 @@ class AssoDetails extends Component {
       phoneNumber,
     } = this.props.location.state.element;
     return (
-      <div className="details-page">
+      <div className="details-page asso-details">
         <Link className="back-button-details" to="">
           <img src="/img/delete.png" alt="Back" />
         </Link>

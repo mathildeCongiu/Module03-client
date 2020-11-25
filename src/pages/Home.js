@@ -5,7 +5,7 @@ import HomeSignUpCard from "../components/public-common/HomeSignUpCard";
 function Home() {
   return (
     <div className="home">
-      <header>
+      <header >
         <h1>VOLUNT' HERO</h1>
         <div>
           <Link className="header-link link" to="/login">Log In</Link>

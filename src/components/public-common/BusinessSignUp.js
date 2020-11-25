@@ -16,10 +16,11 @@ class BusinessSignUp extends Component {
             onChange={(e) => this.props.handleChange(e)}
           />
           <div className="upload-logo">
-            <button>
+            {/* <button>
               <img src="../../img/upload.png" alt="" />
-            </button>
-            <p>Upload your logo</p>
+            </button> */}
+            <input type="file" name = "logo" onChange={this.props.handleFileUpload}/>
+            {/* <p>Upload your logo</p> */}
           </div>
           <textarea
             name="description"
@@ -115,7 +116,7 @@ class BusinessSignUp extends Component {
               <option value="Sat.">Saturday</option>
               <option value="Sun.">Sunday</option>
             </select>
-            {/* <input type="hour" name="hour" value= "19:00" onChange= {(e) => this.handleChange(e)}/> */}
+            <input type="text" name="pickupHour" value={this.props.pickupHour} onChange= {(e) => this.props.handleChange(e)}/>
           </div>
           {/* <button>Add more days</button> */}
           <p>

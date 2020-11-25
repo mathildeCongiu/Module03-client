@@ -15,10 +15,11 @@ export class AssoSignUp extends Component {
             onChange={(e) => this.props.handleChange(e)}
           />
           <div className="upload-logo">
-            <button>
+            {/* <button>
               <img src="../../img/upload.png" alt="" />
-            </button>
-            <p>Upload your logo</p>
+            </button> */}
+            <input type="file" name = "logo" onChange={this.props.handleFileUpload}/>
+            {/* <p>Upload your logo</p> */}
           </div>
           <textarea
             name="description"

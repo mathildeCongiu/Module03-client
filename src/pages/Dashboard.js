@@ -51,6 +51,7 @@ class Dashboard extends Component {
           />
         ))
     }
+
   }
 
   render() {
@@ -80,6 +81,9 @@ class Dashboard extends Component {
           >
             PENDING
           </button>
+         
+          
+    
         </div>
 
         {/* {this.state.showPending ? (
@@ -95,7 +99,7 @@ class Dashboard extends Component {
         )} */}
 
         {this.renderLists()}
-
+        {/* {this.state.userUpdated.partnerships && !userUpdated.partnerships ? (<p>You don’t have partnership yet. Browse your first one <span>NOW!</span></p>) : null }  */}
         <Navbar />
       </div>
     );
