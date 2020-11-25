@@ -13,7 +13,7 @@ class Others extends Component {
         <Link className= "link others-link" to="/attributions">ATTRIBUTIONS</Link>
         <button className="button-others link others-link" onClick={logout}>LOG OUT</button>
         <hr/>
-        <button className="button-others link others-link" onClick= {deleteUser}>DELETE ACCOUNT</button>
+        <button className="button-others link others-link delete-link" onClick= {deleteUser}>DELETE ACCOUNT</button>
         <Navbar /> 
       </div>
     );

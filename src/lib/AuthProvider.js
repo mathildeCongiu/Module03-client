@@ -90,7 +90,7 @@ class AuthProvider extends Component {
     const { login, logout, signup, deleteUser } = this;
 
     return isLoading ? (
-      <div>Loading</div>
+      <img className= "spinner" src="img/spinner.gif" alt= "Loading"/>
     ) : (
       /* dentro del value del provider tendremos datos que estarán disponibles para todos los componentes <Consumer> */
       <Provider value={{ isLoggedin, user, login, logout, signup, deleteUser }}>

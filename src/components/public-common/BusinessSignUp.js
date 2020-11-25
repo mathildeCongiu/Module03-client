@@ -51,7 +51,7 @@ class BusinessSignUp extends Component {
             value={this.props.password}
             onChange={(e) => this.props.handleChange(e)}
           />
-          <label>PICK-UP ADDRESS</label>
+          <label>PICK-UP INFO</label>
           <input
             type="text"
             name="street"
@@ -116,7 +116,7 @@ class BusinessSignUp extends Component {
               <option value="Sat.">Saturday</option>
               <option value="Sun.">Sunday</option>
             </select>
-            <input type="text" name="pickupHour" value={this.props.pickupHour} onChange= {(e) => this.props.handleChange(e)}/>
+            <input className= "hour" type="text" name="pickupHour" value={this.props.pickupHour} onChange= {(e) => this.props.handleChange(e)}/>
           </div>
           {/* <button>Add more days</button> */}
           <p>

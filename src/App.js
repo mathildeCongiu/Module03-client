@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Switch } from "react-router-dom";
-
+import {Route } from "react-router-dom"
 
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-// import Private from "./pages/Private";
-
 import AuthProvider from "./lib/AuthProvider";
-
 import AnonRoute from "./components/auth/AnonRoute";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
@@ -20,6 +17,9 @@ import Others from "./pages/Others";
 import Search from "./pages/Search";
 import BusinessDetail from "./pages/BusinessDetail";
 import AssoDetails from "./pages/AssoDetails";
+import Attributions from "./pages/Attributions";
+import AboutUs from "./pages/AboutUs";
+
 
 class App extends Component {
   render() {
@@ -27,6 +27,8 @@ class App extends Component {
       <AuthProvider>
         <div className="container">
           <Switch>
+            <Route exact path="/attributions" component={Attributions} />
+            <Route exact path="/about-us" component={AboutUs} />
             <AnonRoute exact path="/" component={Home} />
             <AnonRoute exact path="/signup" component={SignUp} />
             <AnonRoute exact path="/login" component={Login} />
@@ -38,6 +40,7 @@ class App extends Component {
             <PrivateRoute exact path="/search" component={Search} />
             <PrivateRoute exact path= "/business-details/:id" component={BusinessDetail} />
             <PrivateRoute exact path="/association-details/:id" component={AssoDetails} />
+            
           </Switch>
         </div>
       </AuthProvider>
