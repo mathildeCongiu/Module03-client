@@ -1,70 +1,239 @@
-# Getting Started with Create React App
+# VOLUNT'HERO
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### DESCRIPTION
 
-## Available Scripts
+With VOLUNT'HERO, charity associations may contact with volunteers shops that want to give their leftovers to be redistributed to needy people. 
 
-In the project directory, you can run:
+### USER STORIES
 
-### `npm start`
+- **404** - As an Association or Business User I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault.
+- **500** - As an Association or Business User I want to see a nice error page when the super team screws it up so that I know that is not my fault.
+- **Sign up** - As a Association or Business User I want to sign up on the webpage so that I can see all the tasks that I could do to be more eco-friendly.
+- **Login** - As a Association or Business User I want to be able to log in on the webpage so that I can get back to my account
+- **Logout** - As an Association or Business User I want to be able to log out from the webpage so that I can make sure no one will access my account
+- **About Us** - As an Association or Business User I want to know more about the incredible creators of this amazing initiative. :p ahah so that I can start registering my association or Business.
+- **FAQ** - As an Association or Business User I want to know how to use the app so that I can start registering my association or Business.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+As an Association User I want to... 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Dashboard - Collaborations** - have a list of my collaborations with Businesses so that I can access the pickup profile and access my own profile.
+- **Dashboard - Pending** - see the pending answer collaborations so that I don't ask it twice. 
+- **Search** - find the registered Businesses who want to give their leftovers or find them through a filter so that I can find the perfect match.
+- **Request page** - see details of a specific Business and ask collaboration so that I can pick-up the leftovers a specific day and hour.
+- **Others** - see more options in my page so that I can log out or see about the app.
 
-### `npm test`
+As an Business User I want to... 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Dashboard - Collaborations** - have a list of my collaborations with Associations so that I can access the pickup profile and access my own profile.
+- **Dashboard - Pending** - see the pending request collaborations so that I can accept or reject a new request from an association.
+- **Association Details** - see the details of the associations which want to collaborate with us so that I can see their descriptions.
+- **Product list** - see all the leftovers I have to give so that associations can access to these products. 
+- **New Product** - add and edit the products I have to give so that the product list is always updated.
+- **Edit / Delete Product** - delete the products I have to give so that the product list is always updated.
 
-### `npm run build`
+### BACKLOG
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Edit user** - As a User I want to be able to edit my profile so that I can update my data.
+- **Map** - As an Association I want to to see a map with the Businesses that are around us.
+- **Chat** - As an Association or Business User I want to chat with the other part so that I can speak the last details. (schedule modification, problem...)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## **CLIENT / FRONTEND**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### REACT ROUTER ROUTES (React App):
 
-### `npm run eject`
+| **Path**                   | **Component**  | Permissions              | Behavior                                                     |
+| -------------------------- | -------------- | ------------------------ | ------------------------------------------------------------ |
+| `/`                        | Home           | anon only `AnonRoute`    | Home page.                                                   |
+| `/signup`                  | Signup         | anon only `AnonRoute`    | Sign up form for Businesses and Associations.                |
+| `/login`                   | Login          | anon only `AnonRoute`    | Log in form for Businesses and Asociations.                  |
+| `/dashboard`               | Dashboard      | user only `PrivateRoute` | Shows the partnerships and the pending partnerships that a Business or Association has. |
+| `/products`                | ProductsPage   | user only `PrivateRoute` | Shows the products that an own Business has.                 |
+| `/products/add`            | AddProduct     | user only `PrivateRoute` | Shows the form for adding a new product.                     |
+| `/products/edit/:id`       | EditProduct    | user only `PrivateRoute` | Shows the form to update an specific product.                |
+| `/others`                  | Others         | user only `PrivateRoute` | Shows a page with other information such as edit profile or delete account or log out. |
+| `/business-details/:id`    | BusinessDetail | user only `PrivateRoute` | Shows the details of a specific Business                     |
+| `/assiciation-details/:id` | AssoDetails    | user only `PrivateRoute` | Shows the details of a specific Association                  |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### COMPONENTS
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- AnonRoute
+- PrivateRoute
+- Card
+- CardList
+- Navbar
+- ProductCard
+- ProductsList
+- ProfileHeader
+- AssoLogin
+- AssoSignup
+- BusinessLogin
+- BusinessSignup
+- HomeSignUpCard
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### SERVICES
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Auth Service
 
-## Learn More
+  - auth.login(user)
+- auth.signup(user)
+  - auth.logout()
+- auth.me()
+  - auth.delete()
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Business Service
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - BusinessFunc.addNewProduct(name, typeName)
+  - BusinessFunc.editProduct(name, typeName, id)
+  - BusinessFunc.deleteProduct(id)
+  - BusinessFunc.accept(id)
+  - BusinessFunc.reject(id)
 
-### Code Splitting
+- Association Service
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  - AssoFunc.searchBusinesses()
 
-### Analyzing the Bundle Size
+  - AssoFunc.postRequest(id)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  - AssoFunc.getBusiness(id)
 
-### Making a Progressive Web App
+    
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## SERVER / BACKEND
 
-### Advanced Configuration
+### MODELS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+AssoUser model
 
-### Deployment
+```
+{
+  relationship: { type: String, default: "association" },
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+    logo: String,
+    address: {
+      street: { type: String, required: true },
+      number: { type: Number, required: true },
+      flat: { type: String },
+      city: { type: String, required: true },
+      postcode: { type: Number, required: true },
+      country: { type: String, required: true },
+    },
+    phoneNumber: { type: Number },
+    description: String,
+    partnerships: [{ type: Schema.Types.ObjectId, ref: "BusinessUser" }],
+    pendingPartnerships: [{ type: Schema.Types.ObjectId, ref: "BusinessUser" }],
+  },
+  {
+    timestamps: {
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+    },
+  }
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+BusinessUser model
 
-### `npm run build` fails to minify
+```
+relationship: { type: String, default: "business" },
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+    logo: String,
+    address: {
+      street: { type: String, required: true },
+      number: { type: Number, required: true },
+      flat: { type: String },
+      city: { type: String, required: true },
+      postcode: { type: Number, required: true },
+      country: { type: String, required: true },
+    },
+    phoneNumber: { type: Number },
+    description: String,
+    partnerships: [{ type: Schema.Types.ObjectId, ref: "AssoUser" }],
+    pendingPartnerships: [{ type: Schema.Types.ObjectId, ref: "AssoUser" }],
+    products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
+    type: {
+      name: { type: String, required: true},
+      img: { type: String },
+    },
+    pickup: {
+      day: { type: String },
+      // hour: { type:  }
+      place: { type: String },
+    },
+  },
+  {
+    timestamps: {
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+    },
+  }
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Product model
+
+```
+{
+  name: { type: String, required: true },
+    owner: { type: Schema.Types.ObjectId, ref: "BusinessUser" },
+    productType: {
+      name: { type: String, required: true },
+      img: String,
+    },
+    today: {
+      isAvailable: Boolean,
+      quantity: String,
+    },
+  },
+  {
+    timestamps: {
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+    },
+  }
+}
+```
+
+### API ENDPOINT (BACKEND ROUTES)
+
+| **Method** | **Route**                              | **Description**                                              | Request - Body                                               |
+| ---------- | -------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `POST`     | `/auth/signup/business`                | Sends Sign up Business form data to the server.              | { name, email, password, logo, street, number, flat, city, postcode, country, phoneNumber, description, typeName, pickupDate, pickupPlace } |
+| `POST`     | `/auth/login/business`                 | Sends Log in Business form data to the server.               | { email, password }                                          |
+| `POST`     | `/auth/signup/association`             | Sends Sign up Association form data to the server.           | { name, email, password, logo, street, number, flat, city, postcode, country, phoneNumber, description } |
+| `POST`     | `/auth/login/association`              | Sends Log in Association form data to the server.            | { email, password }                                          |
+| `POST`     | `/auth/logout`                         | Private route. Logs user out of the page.                    |                                                              |
+| `GET`      | `/auth/me`                             | Private route. Check if the user is logged in.               |                                                              |
+| `DELETE`   | `/delete-user`                         | Private route. Delete user from the server.                  |                                                              |
+| `PUT`      | `/business/edit`                       | Private route. Sends Business user data to update the profile. | { name, email, password, logo, street, number, flat, city, postcode, country, phoneNumber, description, typeName, pickupDate, pickupPlace } |
+| `POST`     | `/business/products/new`               | Private route. Sends information and creates a new product to the server. | { name, typeName }                                           |
+| `PUT`      | `/business/products/edit/:id`          | Private route. Sends information and creates a new product to the server. | { name, typeName }                                           |
+| `DELETE`   | `/business/products/:id`               | Private route. Delete product from the server.               |                                                              |
+| `GET`      | `/business/association/:assoId`        | Private route. Show an Association details.                  |                                                              |
+| `POST`     | `/business/association/accept/:assoId` | Private route. Push the Association ID to the Business user partnerships array and push the Business ID to the Association user partnerships array. |                                                              |
+| `POST`     | `/business/association/reject/:assoId` | Private route. Pull the Association ID from the Business user pendingPartnerships array. |                                                              |
+| `POST`     | `/association/edit`                    | Private route. Sends Association user data to update the profile. | { name, email, password, logo, street, number, flat, city, postcode, country, phoneNumber, description } |
+| `GET`      | `/association/search`                  | Private route. Show list of associations.                    |                                                              |
+| `POST`     | `/association/business/:businessId`    | Private route. Push the Business ID to the Association user pendingPartnerships array and push the Association ID to the Business user pendingPartnerships array. |                                                              |
+
+
+
+## LINKS
+
+### Trello
+
+[Trello Board](https://trello.com/b/4VGGa1x0/m3-project)
+
+### Git
+
+[GitHub Server](https://github.com/mathildeCongiu/Module03-server)
+
+[GitHub Client](https://github.com/mathildeCongiu/Module03-client)
+
+[Deploy Link](https://volunthero.herokuapp.com)
+
+### Presentation
+
+[Presentation link](https://docs.google.com/presentation/d/15CJ9MPlJ7WSHtP3eK7gdCWQYtT2gJbQnGAkpZOG9f6c/edit?usp=sharing)

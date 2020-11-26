@@ -213,7 +213,7 @@ body {
         justify-content: space-between;
         align-items: center;
         width: 25vw;
-        height: 9vh;
+        height: 12vh;
         margin-bottom: 13px;
     
     }
@@ -303,7 +303,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width:100%;
+    width: 100%;
     height: 100vh;
 }
 
@@ -367,6 +367,10 @@ body {
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 20px;
+}
+
+.upload-logo > input {
+    color: var(--clear)
 }
 
 .upload-logo > button {
@@ -472,6 +476,65 @@ body {
 
 .secondary-color {
     color: var(--secondary)
+}
+
+@media screen and (min-width: 1000px) {
+    .register-tabs-container {
+        height: 80px;
+    }
+    
+    .register-tabs {
+        font-size: 30px;
+    }
+
+    .register-form {
+        width: 700px;
+    }
+
+    .register-form label {
+        font-size: 30px;
+    }
+    
+    .register-form textarea {
+        height: 10vh;
+        font-size: 20px;
+    }
+    
+    .register-form > select {
+        width: 40%;
+        height: 30px;
+    }
+    
+    .address-nums > input {
+        width: 30%;
+        height: 30px;
+    }
+    
+    .address-city > input {
+        width: 47%;
+        height: 30px;
+    }
+    
+    .date-input {
+        width: 40%;
+        height: 30px;
+    }
+
+    .date-input > select, .date-input > input {
+        width: 45%;
+    }
+    
+    .register-form p {
+        font-size: 20px;
+        margin: 20px 0;
+    }
+    
+    .input-button {
+        font-size: 20px;
+        margin-top: 20px;
+        height: 40px;
+        width: 200px;
+    }
 }
 
 /* Navbar */
@@ -745,7 +808,7 @@ align-items: center;
         align-items: center;
         justify-content: space-between;
         height: 220px;
-        width: 200px
+        /* width: 200px */
     }
 
     .profile-header > img:first-of-type {
@@ -860,6 +923,7 @@ align-items: center;
         padding: 20px;
         font-size: 20px;
         color: var(--text);
+        word-wrap: break-word;
     }
     
     .card p {
@@ -1108,6 +1172,62 @@ width: 40vw;
     margin-right: 10px;
 }
 
+@media screen and (min-width: 1000px) {
+
+    .search-page {
+        align-items: center;
+    }
+    
+    .search-input {
+        padding: 120px 50px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    .search-input > label {
+        font-size: 2vw;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    
+    .search-input > input {
+        width: 30vw;
+        height: 35px;
+        font-size: 20px;
+    }
+    
+    .filter-button {
+        width: 10vw;
+        margin: 0;
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+    
+    .filter-options {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px 20px;
+        width: 90%;
+    }
+    
+    .filter-options > label {
+        width: 15%;
+        font-size: 20px;
+    }
+    
+    .filter-options input {
+        margin-right: 10px;
+    }
+
+    .search-page > .card-list > ul {
+        justify-content: space-between;
+    }
+}
+
 /* Details page  */
 .details-page {
     display: flex;
@@ -1157,10 +1277,11 @@ width: 40vw;
     margin: 20px 0 5px;
 
 }
-.details-info h4,.details-info p {
+.details-info h4, .details-info p {
     font-size: 4.5vw;
     color: var(--text);
     margin: 20px 0 6px; 
+    line-height: 1.6;
 }
 
 .details-info h4 {
@@ -1296,15 +1417,23 @@ hr {
 }
 
 .delete-link {
-    color: #B5076B
+    color: #B5076B;
 }
 
 @media screen and (min-width: 1000px){ 
+
+    .others-page {
+        margin-top: 80px;
+    }
 
     .others-link {
         color: var(--secondary);
         margin: 20px;
         font-size: 2.5vw
+    }
+
+    .delete-link {
+        color: #B5076B;
     }
 
 }
