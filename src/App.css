@@ -744,7 +744,7 @@ align-items: center;
         padding: 20px;
         align-items: center;
         justify-content: space-between;
-        height: 200px;
+        height: 220px;
         width: 200px
     }
 
@@ -766,11 +766,13 @@ align-items: center;
     }
     
     .profile-header h2 {
-        font-size: 2vw;
+        font-size: 25px;
         color: var(--secondary);
         font-weight: 900;
         margin-bottom: 20px;
         text-transform: uppercase;
+        text-align: center;
+        margin-top: 20px;
     }
     
     .dashboard-pickup-day {
@@ -812,15 +814,16 @@ align-items: center;
         flex-direction: row;
         /* justify-content: space-around; */
         flex-wrap: wrap;
-        align-items: center;
+        /* align-items: center; */
         width: 80vw
     }
     
     .card-list > ul {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
+        justify-content: flex-start;
+        /* align-items: center; */
+        flex-wrap: wrap;
         margin-bottom: 100px;
     }
     
@@ -829,10 +832,10 @@ align-items: center;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        width: 25vw;
+        width: 20vw;
         background-color: var(--clear);
         border-radius: 20px;
-        margin-top: 25px;
+        margin: 25px 20px 0;
         position: relative;
         box-shadow: 3px 3px 10px grey;
     }
@@ -847,7 +850,6 @@ align-items: center;
     .card-logo {
         background-color: white;
         border-radius: 50%;
-        width: 7vw;
         position: absolute;
         left: 10px;
         top: 10px;
@@ -856,13 +858,13 @@ align-items: center;
     .card > h3 {
         align-self: flex-start;
         padding: 20px;
-        font-size: 2.5vw;
+        font-size: 20px;
         color: var(--text);
     }
     
     .card p {
         color: var(--secondary);
-        font-size: 2vw;
+        font-size: 20px;
         padding: 5px 20px 20px ;
         align-self: flex-start;
     }
@@ -870,13 +872,13 @@ align-items: center;
     .accept-reject-container {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         width: 90%;
     }
     
     .accept-reject-container > button {
-        width: 38vw;
+        width: 40%;
         padding: 7px 0;
         border: none;
     }
@@ -1260,7 +1262,10 @@ width: 40vw;
     .sub-details-list {
         display: flex;
         flex-direction: row
+    }
 
+    .sub-details-list > div {
+        margin-right: 50px;
     }
 }
 

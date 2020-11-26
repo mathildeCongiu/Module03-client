@@ -17,18 +17,25 @@ class AssoDetails extends Component {
         </Link>
         <ProfileHeader selectedProfile={this.props.location.state.element} />
 
-        <div className="details-info">
-          <p>{description}</p>
+        <div className="description-container">
+          <div className="details-info">
+            <p>{description}</p>
+            <h3>PICK UP</h3>
+            <div className="sub-details-list">
+              <div>
+                <h4>Address</h4>
+                <p>
+                  {address.street}, {address.number} <br /> {address.postcode}{" "}
+                  {address.city} <br /> {address.country}
+                </p>
+              </div>
 
-          <h3>PICK UP</h3>
-          <h4>Address</h4>
-          <p>
-            {address.street}, {address.number} <br /> {address.postcode}{" "}
-            {address.city} <br /> {address.country}
-          </p>
-
-          <h4>Phone number</h4>
-          <p>{phoneNumber}</p>
+              <div>
+                <h4>Phone number</h4>
+                <p>{phoneNumber}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
