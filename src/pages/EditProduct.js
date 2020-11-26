@@ -9,7 +9,7 @@ class EditProduct extends Component {
   handleFormSubmit = async (event) => {
     event.preventDefault();
     const { name, typeName } = this.state;
-    console.log(this.props.match)
+    // console.log(this.props.match)
     const { id } = this.props.match.params;
 
     await businessFunc.editProduct(name, typeName, id);

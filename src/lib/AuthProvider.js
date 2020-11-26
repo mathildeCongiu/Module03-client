@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import auth from "./auth-service"; // importamos funciones para llamadas axios a la API
-import asso from "./asso-service"; // importamos funciones para llamadas axios a la API
+// import asso from "./asso-service"; // importamos funciones para llamadas axios a la API
 
 const { Consumer, Provider } = React.createContext();
 

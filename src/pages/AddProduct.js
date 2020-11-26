@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
-import auth from "../lib/auth-service";
+// import auth from "../lib/auth-service";
 import { Link } from "react-router-dom";
 import businessFunc from "./../lib/business-service"
-import { Redirect } from "react-router-dom"; 
+// import { Redirect } from "react-router-dom"; 
 
 class AddProduct extends Component {
   state = {

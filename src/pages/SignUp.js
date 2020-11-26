@@ -82,18 +82,18 @@ class Signup extends Component {
 
    // this method handles just the file upload
    handleFileUpload = async (e) => {
-    console.log("The file to be uploaded is: ", e.target.files[0]);
+    // console.log("The file to be uploaded is: ", e.target.files[0]);
 
     // Create a new Object Form 
     const uploadData = new FormData();
     // imageUrl => this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new thing in '/api/things/create' POST route
     uploadData.append("logo", e.target.files[0]);
-    console.log(uploadData)
+    // console.log(uploadData)
     try {
       const res = await auth.handleUpload(uploadData);
 
-      console.log("response is: ", res);
+      // console.log("response is: ", res);
       // after the console.log we can see that response carries 'secure_url' which we can use to update the state
       this.setState({ logo: res.secure_url });
     } catch (error) {

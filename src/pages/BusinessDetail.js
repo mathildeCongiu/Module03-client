@@ -9,7 +9,7 @@ class BusinessDetail extends Component {
 
   handleRequest = async () => {
     const { _id} = this.props.location.state.element
-    console.log(_id, "where are you darlingh")
+    // console.log(_id, "where are you darlingh")
     await assoFunc.postRequest(_id)
     this.props.history.goBack();
   }

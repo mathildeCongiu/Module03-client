@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import CardList from "../components/private-common/CardList";
 import Navbar from "../components/private-common/Navbar";
 import ProfileHeader from "../components/private-common/ProfileHeader";
@@ -56,7 +56,7 @@ class Dashboard extends Component {
 
   render() {
     const { userUpdated } = this.state;
-    console.log("userUpdated", userUpdated);
+    // console.log("userUpdated", userUpdated);
     return (
       <div className="dashboard">
         <ProfileHeader selectedProfile={userUpdated} />

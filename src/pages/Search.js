@@ -29,7 +29,7 @@ class Search extends Component {
   selectInput = (event) => {
     if (event.target.checked) {
       let value = event.target.value;
-      console.log(value)
+      // console.log(value)
       const businessCopy = [...this.state.result];
       const filteredArr = businessCopy.filter((elem) => {
         return elem.type.name === value;
