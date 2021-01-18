@@ -59,7 +59,8 @@ class Dashboard extends Component {
     console.log("userUpdated", userUpdated);
     return (
       <div className="dashboard">
-        <ProfileHeader selectedProfile={userUpdated} />
+        {userUpdated.name ? 
+        <ProfileHeader selectedProfile={userUpdated} /> : null}
         {userUpdated.relationship === "business" ? (
           <p className="dashboard-pickup-day">| {userUpdated.pickup.day} {userUpdated.pickup.hour} |</p>
         ) : null}

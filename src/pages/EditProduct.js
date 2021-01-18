@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 import businessFunc from "./../lib/business-service";
 
 class EditProduct extends Component {
-  state = {};
+  state = {
+    name: this.props.location.state.name,
+    type: this.props.location.state.productType.name
+  };
 
   handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -27,6 +30,7 @@ class EditProduct extends Component {
     this.props.history.goBack()
   }
   render() {
+    console.log(this.props.location.state)
     return (
       <div className="add-edit-product">
         <Link to="/products" className="back-button">
@@ -38,14 +42,14 @@ class EditProduct extends Component {
            className="add-edit-input"
             type="text"
             name="name"
-            placeholder= {this.props.name}
+            value= {this.state.name}
             onChange={(e) => this.handleChange(e)}
           />
 
           <label>Type</label>
-          <select className= "select-input" name="typeName" onChange={(e) => this.handleChange(e) }>
+          <select className= "select-input" name="typeName" defaultValue= {this.state.type} onChange={(e) => this.handleChange(e) }>
             <option value="select">SELECT</option>
-            <option value="can">Canned food</option>
+            <option value="can">Canned food </option>
             <option value="fresh">Fresh food</option>
           </select>
           <input type="submit" value="Edit Product" className="button add-edit-product-button"/>
