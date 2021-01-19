@@ -10,39 +10,56 @@ class Search extends Component {
     result: [],
     filteredResult: [],
   };
-  // onChangeHandler = (event) => {
-  //     let value = event.target.value
-  //     this.props.showResult(value)
-  // }
 
   searchInput = (event) => {
     let value = event.target.value.toLowerCase();
     const businessCopy = [...this.state.result];
+    
     const filteredArr = businessCopy.filter((elem) => {
       return elem.name.toLowerCase().includes(value);
     });
-    this.setState({
-      filteredResult: filteredArr,
-    });
+
+    // if (filteredArr.length === 0 ) {
+    //   this.setState({
+    //     
+    //     filteredResult: [],
+    //   });
+    // }
+    // else {
+
+      this.setState({
+        filteredResult: filteredArr,
+      });
+    // }
   };
 
   selectInput = (event) => {
+    let value = event.target.value;
     if (event.target.checked) {
-      let value = event.target.value;
-      // console.log(value)
       const businessCopy = [...this.state.result];
       const filteredArr = businessCopy.filter((elem) => {
         return elem.type.name === value;
       });
+      const filterArrTotal = [...this.state.filteredResult];
+      filterArrTotal.push(...filteredArr);
       this.setState({
-        filteredResult: filteredArr,
-        // filteredResult: [...this.state.filteredResult, ...filteredArr],
+        filteredResult: filterArrTotal,
       });
-    } 
-    else {
-      this.setState({
-        filteredResult: this.state.result,
+    } else {
+      const businessCopy = [...this.state.filteredResult];
+      const filteredArr = businessCopy.filter((elem) => {
+        return elem.type.name !== value;
       });
+
+      if (filteredArr.length === 0) {
+        this.setState({
+          filteredResult: this.state.result,
+        });
+      } else {
+        this.setState({
+          filteredResult: filteredArr,
+        });
+      }
     }
   };
 
@@ -56,7 +73,6 @@ class Search extends Component {
     const result = await assoFunc.searchBusinesses();
     this.setState({
       result,
-      filteredResult: result,
     });
   };
 
@@ -90,29 +106,55 @@ class Search extends Component {
               Bakery
             </label>
             <label>
-              <input type="checkbox" value="fishmonger" onClick={(event) => this.selectInput(event)} />
+              <input
+                type="checkbox"
+                value="fishmonger"
+                onClick={(event) => this.selectInput(event)}
+              />
               Fishmonger
             </label>
             <label>
-              <input type="checkbox" value="supermarket" onClick={(event) => this.selectInput(event)} />
+              <input
+                type="checkbox"
+                value="supermarket"
+                onClick={(event) => this.selectInput(event)}
+              />
               Supermarket
             </label>
             <label>
-              <input type="checkbox" value="butchShop" onClick={(event) => this.selectInput(event)} />
+              <input
+                type="checkbox"
+                value="butchShop"
+                onClick={(event) => this.selectInput(event)}
+              />
               Butcher Shop
             </label>
             <label>
-              <input type="checkbox" value="restaurant" onClick={(event) => this.selectInput(event)} />
+              <input
+                type="checkbox"
+                value="restaurant"
+                onClick={(event) => this.selectInput(event)}
+              />
               Restaurant
             </label>
             <label>
-              <input type="checkbox" value="grocery" onClick={(event) => this.selectInput(event)} />
+              <input
+                type="checkbox"
+                value="grocery"
+                onClick={(event) => this.selectInput(event)}
+              />
               Green Grocery
             </label>
           </div>
         ) : null}
-
-        <CardList result={this.state.filteredResult} showPending={false} />
+        <CardList
+          result={
+            this.state.filteredResult[0]
+              ? this.state.filteredResult
+              : this.state.result
+          }
+          showPending={false}
+        />
         <Navbar />
       </div>
     );

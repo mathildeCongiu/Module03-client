@@ -27,7 +27,7 @@ class ProductsList extends Component {
           {this.props.productsArr.map((element, index) => {
             return (
               <li key={index}>
-              {user.relationship === "business" ? <Link className="link" to={`/products/edit/${element._id}`}>
+              {user.relationship === "business" ? <Link className="link" to={ { pathname: `/products/edit/${element._id}`, state: element }}>
                   <ProductCard element={element} />
                 </Link> : <ProductCard element={element} /> }
                 
