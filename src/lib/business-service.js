@@ -27,6 +27,10 @@ class PrivateBusiness {
   reject(id) {
     return this.BusinessFunc.post(`/business/association/reject/${id}`).then(({ data }) => data);
   }
+
+  editBusiness() {
+    return this.assoFunc.get(`/business/edit`).then(({ data }) => data)
+  }
 }
 
 const axiosBusinessRequestFunctions = new PrivateBusiness();

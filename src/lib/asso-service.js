@@ -19,6 +19,10 @@ class PrivateAsso {
   getBusiness(id) {
     return this.assoFunc.get(`/association/business/${id}`).then(({ data }) => data)
   }
+
+  editAsso() {
+    return this.assoFunc.get(`/association/edit`).then(({ data }) => data)
+  }
 }
 
 const axiosAssoRequestFunctions = new PrivateAsso();
