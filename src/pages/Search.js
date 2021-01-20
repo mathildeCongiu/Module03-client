@@ -19,18 +19,18 @@ class Search extends Component {
       return elem.name.toLowerCase().includes(value);
     });
 
-    // if (filteredArr.length === 0 ) {
-    //   this.setState({
-    //     
-    //     filteredResult: [],
-    //   });
-    // }
-    // else {
+    if (filteredArr.length === 0 ) {
+      this.setState({
+        
+        filteredResult: ["There is no result"],
+      });
+    }
+    else {
 
       this.setState({
         filteredResult: filteredArr,
       });
-    // }
+    }
   };
 
   selectInput = (event) => {
@@ -41,6 +41,7 @@ class Search extends Component {
         return elem.type.name === value;
       });
       const filterArrTotal = [...this.state.filteredResult];
+      console.log(filterArrTotal)
       filterArrTotal.push(...filteredArr);
       this.setState({
         filteredResult: filterArrTotal,
@@ -48,12 +49,13 @@ class Search extends Component {
     } else {
       const businessCopy = [...this.state.filteredResult];
       const filteredArr = businessCopy.filter((elem) => {
+        console.log(elem)
         return elem.type.name !== value;
       });
 
       if (filteredArr.length === 0) {
         this.setState({
-          filteredResult: this.state.result,
+          filteredResult: []
         });
       } else {
         this.setState({
