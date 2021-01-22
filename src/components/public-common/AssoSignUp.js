@@ -8,8 +8,7 @@ export class AssoSignUp extends Component {
   }
 
   render() {
-    console.log(this.props.description);
-    return (
+        return (
       
       <div className="register-page register-asso">
         <form className="register-form" onSubmit={this.props.handleFormSubmit}>
@@ -101,14 +100,18 @@ export class AssoSignUp extends Component {
             value={this.props.phoneNumber || ""}
             onChange={(e) => this.props.handleChange(e)}
           />
-          <p>
-            Already have an account!{" "}
-            <span>
-              <Link className="link secondary-color" to={"/login"}>Log In</Link>
-            </span>{" "}
-            here!
-          </p>
-          <input className="button input-button" type="submit" value="Signup" />
+          {this.props.edit ?  <input className="button main-color-button input-button" type="submit" value="Edit" /> :     <div>
+            <p>
+              Already have an account!{" "}
+              <span>
+                <Link className="link" to={"/login"}>Log In</Link>
+              </span>{" "}
+              here!
+            </p>
+
+            <input className="button main-color-button input-button" type="submit" value="Signup" />
+          </div>
+  }
         </form>
       </div>
     );

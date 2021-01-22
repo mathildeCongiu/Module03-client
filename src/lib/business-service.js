@@ -28,8 +28,38 @@ class PrivateBusiness {
     return this.BusinessFunc.post(`/business/association/reject/${id}`).then(({ data }) => data);
   }
 
-  editBusiness() {
-    return this.assoFunc.get(`/business/edit`).then(({ data }) => data)
+  editBusiness( name,
+    email,
+    password,
+    logo,
+    street,
+    number,
+    flat,
+    city,
+    postcode,
+    country,
+    phoneNumber,
+    description,
+    typeName,
+    pickupDate,
+    pickupPlace,
+    pickupHour) {
+    return this.BusinessFunc.put(`/business/edit`,  name,
+    email,
+    password,
+    logo,
+    street,
+    number,
+    flat,
+    city,
+    postcode,
+    country,
+    phoneNumber,
+    description,
+    typeName,
+    pickupDate,
+    pickupPlace,
+    pickupHour).then(({ data }) => data)
   }
 }
 

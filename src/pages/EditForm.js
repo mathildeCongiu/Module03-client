@@ -3,6 +3,8 @@ import AssoSignUp from "../components/public-common/AssoSignUp";
 import BusinessSignUp from "../components/public-common/BusinessSignUp";
 import { withAuth } from "../lib/AuthProvider";
 import auth from "../lib/auth-service" 
+import assoService from "../lib/asso-service" 
+import businessService from "../lib/business-service" 
 import { Link } from 'react-router-dom'
 
 class EditForm extends Component {
@@ -28,6 +30,7 @@ class EditForm extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
+
     const {
       name,
       email,
@@ -47,25 +50,47 @@ class EditForm extends Component {
       pickupHour
     } = this.state;
 
-    this.props.signup({
-      name,
-      email,
-      password,
-      logo,
-      street,
-      number,
-      flat,
-      city,
-      postcode,
-      country,
-      phoneNumber,
-      description,
-      typeName,
-      pickupDate,
-      pickupPlace,
-      pickupHour
-    });
-  };
+    if (this.props.user.relationship === "association" ) {
+      assoService.editAsso({
+        name,
+        email,
+        password,
+        logo,
+        street,
+        number,
+        flat,
+        city,
+        postcode,
+        country,
+        phoneNumber,
+        description,
+        typeName,
+      });
+    ;
+    }
+    else {
+      
+      businessService.editBusiness({
+        name,
+        email,
+        password,
+        logo,
+        street,
+        number,
+        flat,
+        city,
+        postcode,
+        country,
+        phoneNumber,
+        description,
+        typeName,
+        pickupDate,
+        pickupPlace,
+        pickupHour
+      })
+    } 
+   this.props.history.push("/dashboard")
+    }
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -141,17 +166,19 @@ class EditForm extends Component {
     isBusiness,
     pickupHour
     })
-    console.log();
   }
 
   render() {
+    
     return (
+    
       <div >
           <Link className="back-button-details" to="">
           <img src="/img/delete.png" alt="Back" />
         </Link>
         {this.props.user.relationship === "association" ? (
           <AssoSignUp
+            edit = {true}
             {...this.state}
             handleChange={(e) => this.handleChange(e)}
             handleFormSubmit={this.handleFormSubmit}
@@ -159,6 +186,7 @@ class EditForm extends Component {
           />
         ) : (
           <BusinessSignUp
+            edit = {true}
             {...this.state}
             handleChange={(e) => this.handleChange(e)}
             handleFormSubmit={this.handleFormSubmit}

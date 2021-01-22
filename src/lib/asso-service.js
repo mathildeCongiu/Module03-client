@@ -20,8 +20,32 @@ class PrivateAsso {
     return this.assoFunc.get(`/association/business/${id}`).then(({ data }) => data)
   }
 
-  editAsso() {
-    return this.assoFunc.get(`/association/edit`).then(({ data }) => data)
+  editAsso(name,
+    email,
+    password,
+    logo,
+    street,
+    number,
+    flat,
+    city,
+    postcode,
+    country,
+    phoneNumber,
+    description,
+    typeName) {
+    return this.assoFunc.put(`/association/edit`, name,
+    email,
+    password,
+    logo,
+    street,
+    number,
+    flat,
+    city,
+    postcode,
+    country,
+    phoneNumber,
+    description,
+    typeName).then(({ data }) => data)
   }
 }
 
