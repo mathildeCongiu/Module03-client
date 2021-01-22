@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
 
 class BusinessSignUp extends Component {
+ 
   render() {
+    
     return (
       <div className="register-page register-business">
         <form className="register-form" onSubmit={this.props.handleFormSubmit}>
@@ -12,7 +14,7 @@ class BusinessSignUp extends Component {
             type="text"
             name="name"
             placeholder="Name"
-            value={this.props.name}
+            value={this.props.name || ""}
             onChange={(e) => this.props.handleChange(e)}
           />
           <div className="upload-logo">
@@ -25,7 +27,7 @@ class BusinessSignUp extends Component {
           <textarea
             name="description"
             placeholder="Short description of what you do"
-            value={this.props.description}
+            value={this.props.description || ""}
             onChange={(e) => this.props.handleChange(e)}
           />
           <select name="typeName" onChange={(e) => this.props.handleChange(e) }>
@@ -56,7 +58,7 @@ class BusinessSignUp extends Component {
             type="text"
             name="street"
             placeholder="Street"
-            value={this.props.street}
+            value={this.props.street || ""}
             onChange={(e) => this.props.handleChange(e)}
           />
           <div className="address-nums">
@@ -64,21 +66,21 @@ class BusinessSignUp extends Component {
               type="number"
               name="number"
               placeholder="Number"
-              value={this.props.number}
+              value={this.props.number || ""}
               onChange={(e) => this.props.handleChange(e)}
             />
             <input
               type="text"
               name="flat"
               placeholder="Flat"
-              value={this.props.flat}
+              value={this.props.flat || ""}
               onChange={(e) => this.props.handleChange(e)}
             />
             <input
               type="number"
               name="postcode"
               placeholder="ZIP Code"
-              value={this.props.postcode}
+              value={this.props.postcode || ""}
               onChange={(e) => this.props.handleChange(e)}
             />
           </div>
@@ -87,14 +89,14 @@ class BusinessSignUp extends Component {
               type="text"
               name="city"
               placeholder="City"
-              value={this.props.city}
+              value={this.props.city || ""}
               onChange={(e) => this.props.handleChange(e)}
             />
             <input
               type="text"
               name="country"
               placeholder="Country"
-              value={this.props.country}
+              value={this.props.country || ""}
               onChange={(e) => this.props.handleChange(e)}
             />
           </div>
@@ -102,7 +104,7 @@ class BusinessSignUp extends Component {
             type="number"
             name="phoneNumber"
             placeholder="Phone Number"
-            value={this.props.phoneNumber}
+            value={this.props.phoneNumber || ""}
             onChange={(e) => this.props.handleChange(e)}
           />
           <div className="date-input">
@@ -116,18 +118,21 @@ class BusinessSignUp extends Component {
               <option value="Sat.">Saturday</option>
               <option value="Sun.">Sunday</option>
             </select>
-            <input className= "hour" type="text" name="pickupHour" value={this.props.pickupHour} onChange= {(e) => this.props.handleChange(e)}/>
+            <input className= "hour" type="text" name="pickupHour" value={this.props.pickupHour || ""} onChange= {(e) => this.props.handleChange(e)}/>
           </div>
           {/* <button>Add more days</button> */}
-          <p>
-            Already have an account!{" "}
-            <span>
-              <Link className="link" to={"/login"}>Log In</Link>
-            </span>{" "}
-            here!
-          </p>
+          {this.props.edit ?  <input className="button main-color-button input-button" type="submit" value="Edit" /> :     <div>
+            <p>
+              Already have an account!{" "}
+              <span>
+                <Link className="link" to={"/login"}>Log In</Link>
+              </span>{" "}
+              here!
+            </p>
 
-          <input className="button main-color-button input-button" type="submit" value="Signup" />
+            <input className="button main-color-button input-button" type="submit" value="Signup" />
+          </div>
+  }
         </form>
       </div>
     );

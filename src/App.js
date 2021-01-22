@@ -19,6 +19,7 @@ import BusinessDetail from "./pages/BusinessDetail";
 import AssoDetails from "./pages/AssoDetails";
 import Attributions from "./pages/Attributions";
 import AboutUs from "./pages/AboutUs";
+import EditForm from "./pages/EditForm";
 
 
 class App extends Component {
@@ -40,6 +41,7 @@ class App extends Component {
             <PrivateRoute exact path="/search" component={Search} />
             <PrivateRoute exact path= "/business-details/:id" component={BusinessDetail} />
             <PrivateRoute exact path="/association-details/:id" component={AssoDetails} />
+            <PrivateRoute exact path="/edit" component={EditForm} />
             
           </Switch>
         </div>

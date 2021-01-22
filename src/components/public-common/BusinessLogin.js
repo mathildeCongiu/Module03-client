@@ -10,7 +10,7 @@ export class BusinessLogin extends Component {
             type="email"
             name="email"
             placeholder="Email"
-            value={this.props.email}
+            value={this.props.email }
             onChange={(e) => this.props.handleChange(e)}
           />
           <input

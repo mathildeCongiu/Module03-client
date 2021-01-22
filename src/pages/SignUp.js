@@ -121,6 +121,7 @@ class Signup extends Component {
         </div>
         {!this.state.isBusiness ? (
           <AssoSignUp
+          edit = {false}
             {...this.state}
             handleChange={(e) => this.handleChange(e)}
             handleFormSubmit={this.handleFormSubmit}
@@ -128,6 +129,7 @@ class Signup extends Component {
           />
         ) : (
           <BusinessSignUp
+          edit = {false}
             {...this.state}
             handleChange={(e) => this.handleChange(e)}
             handleFormSubmit={this.handleFormSubmit}
