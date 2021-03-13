@@ -12,7 +12,7 @@ describe("Alternative flow 1A-2A: Association already has an account", () => {
   });
 
   it("fill and send log in form", () => {
-    cy.get('input[name="email"]').type("amir@asso.com");
+    cy.get('input[name="email"]').type("assododo@dodo.com");
     cy.get('input[name="password"]').type("1234");
     cy.get("form").submit();
   });
