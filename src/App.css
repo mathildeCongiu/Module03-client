@@ -163,6 +163,10 @@ body {
     border-radius: 200px;
 }
 
+.button:hover {
+    filter: brightness(105%)
+}
+
 .home footer {
     background-color: var(--secondary);
     height: 6.5vh;
