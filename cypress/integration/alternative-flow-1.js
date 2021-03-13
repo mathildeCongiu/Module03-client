@@ -21,7 +21,7 @@ describe("Alternative flow 1A-2A: Association already has an account", () => {
     cy.get("p").contains("Search").click();
   });
 
-  it('finds and click Bakery Agustina Bonita', () => {
+  it('finds and click "Bakery Agustina Bonita"', () => {
     cy.get("h3").contains("Bakery Agustina Bonita").click();
   });
 

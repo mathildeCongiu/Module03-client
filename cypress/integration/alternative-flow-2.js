@@ -25,7 +25,7 @@ describe("Alternative flow 4A: Association search for a specific business", () =
     cy.get('input[name="search"]').type("Bakery Agustina Bonita");
   });
 
-  it('finds and click Bakery Agustina Bonita', () => {
+  it('finds and click "Bakery Agustina Bonita"', () => {
     cy.get("h3").contains("Bakery Agustina Bonita").click();
   });
 

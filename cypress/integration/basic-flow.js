@@ -38,7 +38,3 @@ describe("Basic flow: Make a request", () => {
     cy.get("button").contains("Request partnership").click();
   });
 });
-
-/*
-FIX CORS PROBLEM
-*/
