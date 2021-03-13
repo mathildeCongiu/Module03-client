@@ -1,6 +1,6 @@
 describe("Alternative Flow 4B: Association search for a specific business with filter", () => {
   it(`Visits the Volunt'Hero Home Page`, () => {
-    cy.visit("http://localhost:4000");
+    cy.visit("http://volunthero.herokuapp.com");
   });
 
   it('finds and click the link "Log In"', () => {
@@ -15,10 +15,12 @@ describe("Alternative Flow 4B: Association search for a specific business with f
     cy.get('input[name="email"]').type("amir@asso.com");
     cy.get('input[name="password"]').type("1234");
     cy.get("form").submit();
+    cy.url().should("include", "/dashboard");
   });
 
   it('finds and click the link "Search"', () => {
     cy.get("p").contains("Search").click();
+    cy.url().should("include", "/search");
   });
 
   it('clicks on "FILTERS" and select "Bakery" options', () => {
