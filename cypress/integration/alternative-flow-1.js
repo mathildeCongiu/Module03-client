@@ -12,36 +12,36 @@ describe("Alternative flow 1A-2A: Association already has an account", () => {
   });
 
   it("fill and send log in form", () => {
-    cy.get('input[name="email"]').type("assododo@dodo.com");
+    cy.get('input[name="email"]').type("amir@asso.com");
     cy.get('input[name="password"]').type("1234");
     cy.get("form").submit();
     cy.url().should("include", "/dashboard");
   });
 
   it('finds and click the link "Search"', () => {
+    cy.server();
+    cy.intercept("GET", "/association/search").as("business");
     cy.get("p").contains("Search").click();
     cy.url().should("include", "/search");
+    cy.wait("@business");
   });
 
-  it('loads all business', () => {
-    cy.intercept('GET', 'https://volunthero.herokuapp.com/association/search').as('business')
-    // cy.wait('@business')
-    // cy.wait(5000)
-    // cy.get("a").contains("Bakery Augustina Bonita").click();
+  it("loads all business", () => {
+    cy.get('h3').as('businessArr')
+    cy.expect('@businessArr').to.have.length.greaterThan(0)
   });
 
-  it('finds and click "Bakery Agustina Bonita"', () => {
-    // cy.intercept('GET', 'https://volunthero.herokuapp.com/association/search').as('business')
-    // cy.wait('@business')
-    // cy.wait(5000)
-    cy.get("a").contains("Bakery Augustina Bonita").click();
+  it('finds and click "Bakery Augustina Bonita"', () => {
+    cy.get("h3").contains("Bakery Augustina Bonita").parent().click();
+    cy.url().should("include", "/business-details");
   });
 
-  // it('finds and click "Request partnership" button', () => {
-  //   cy.get("button").contains("Request partnership").click();
-  // });
+  it('finds and click "Request partnership" button', () => {
+    cy.server();
+    cy.intercept("POST", "/association/business/5fbf855a729aed0017857024", {
+      statusCode: 200,
+      body: "it worked",
+    });
+    cy.get("button").contains("Request partnership").click();
+  });
 });
-
-/*
-FIX CORS PROBLEM
-*/
