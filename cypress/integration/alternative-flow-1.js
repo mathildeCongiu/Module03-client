@@ -1,4 +1,4 @@
-describe("Alternative flow 1A-2A: Association already has an account", () => {
+describe("Alternative flow 4A: Association search for a specific business", () => {
   it(`Visits the Volunt'Hero Home Page`, () => {
     cy.visit("http://volunthero.herokuapp.com");
   });
@@ -12,7 +12,7 @@ describe("Alternative flow 1A-2A: Association already has an account", () => {
   });
 
   it("fill and send log in form", () => {
-    cy.get('input[name="email"]').type("amir@asso.com");
+    cy.get('input[name="email"]').type("rakuten@asso.com");
     cy.get('input[name="password"]').type("1234");
     cy.get("form").submit();
     cy.url().should("include", "/dashboard");
@@ -31,6 +31,10 @@ describe("Alternative flow 1A-2A: Association already has an account", () => {
     cy.expect('@businessArr').to.have.length.greaterThan(0)
   });
 
+  it('writes "Bakery Augustina Bonita" in the search bar', () => {
+    cy.get('input[name="search"]').type("Bakery Augustina Bonita");
+  });
+
   it('finds and click "Bakery Augustina Bonita"', () => {
     cy.get("h3").contains("Bakery Augustina Bonita").parent().click();
     cy.url().should("include", "/business-details");
@@ -38,10 +42,10 @@ describe("Alternative flow 1A-2A: Association already has an account", () => {
 
   it('finds and click "Request partnership" button', () => {
     cy.server();
-    cy.intercept("POST", "/association/business/5fbf855a729aed0017857024", {
+    cy.intercept('POST', '/association/business/5fbf855a729aed0017857024', {
       statusCode: 200,
-      body: "it worked",
-    });
+      body: 'it worked'
+    })
     cy.get("button").contains("Request partnership").click();
   });
 });

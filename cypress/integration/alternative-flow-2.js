@@ -1,4 +1,4 @@
-describe("Alternative flow 4A: Association search for a specific business", () => {
+describe("Alternative Flow 4B: Association search for a specific business with filter", () => {
   it(`Visits the Volunt'Hero Home Page`, () => {
     cy.visit("http://volunthero.herokuapp.com");
   });
@@ -12,7 +12,7 @@ describe("Alternative flow 4A: Association search for a specific business", () =
   });
 
   it("fill and send log in form", () => {
-    cy.get('input[name="email"]').type("amir@asso.com");
+    cy.get('input[name="email"]').type("rakuten@asso.com");
     cy.get('input[name="password"]').type("1234");
     cy.get("form").submit();
     cy.url().should("include", "/dashboard");
@@ -31,8 +31,9 @@ describe("Alternative flow 4A: Association search for a specific business", () =
     cy.expect('@businessArr').to.have.length.greaterThan(0)
   });
 
-  it('writes "Bakery Augustina Bonita" in the search bar', () => {
-    cy.get('input[name="search"]').type("Bakery Augustina Bonita");
+  it('clicks on "FILTERS" and select "Bakery" options', () => {
+    cy.get("button").contains("FILTERS").click();
+    cy.get('input[value="bakery"]').click();
   });
 
   it('finds and click "Bakery Augustina Bonita"', () => {
