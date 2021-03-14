@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 describe("Alternative Flow 4B: Association search for a specific business with filter", () => {
   it(`Visits the Volunt'Hero Home Page`, () => {
     cy.visit("http://volunthero.herokuapp.com");
+=======
+describe("Alternative flow 4A: Association search for a specific business", () => {
+  it(`Visits the Volunt'Hero Home Page`, () => {
+    cy.visit("http://localhost:4000");
+>>>>>>> 4da475cc6bf2f0013980156a7568e7d67a8dcd64
   });
 
   it('finds and click the link "Log In"', () => {
@@ -12,6 +18,7 @@ describe("Alternative Flow 4B: Association search for a specific business with f
   });
 
   it("fill and send log in form", () => {
+<<<<<<< HEAD
     cy.get('input[name="email"]').type("rakuten@asso.com");
     cy.get('input[name="password"]').type("1234");
     cy.get("form").submit();
@@ -50,3 +57,30 @@ describe("Alternative Flow 4B: Association search for a specific business with f
     cy.get("button").contains("Request partnership").click();
   });
 });
+=======
+    cy.get('input[name="email"]').type("amir@asso.com");
+    cy.get('input[name="password"]').type("1234");
+    cy.get("form").submit();
+  });
+
+  it('finds and click the link "Search"', () => {
+    cy.get("p").contains("Search").click();
+  });
+
+  it('writes "Bakery Agustina Bonita" in the search bar', () => {
+    cy.get('input[name="search"]').type("Bakery Agustina Bonita");
+  });
+
+  it('finds and click "Bakery Agustina Bonita"', () => {
+    cy.get("h3").contains("Bakery Agustina Bonita").click();
+  });
+
+  it('finds and click "Request partnership" button', () => {
+    cy.get("button").contains("Request partnership").click();
+  });
+});
+
+/*
+FIX CORS PROBLEM
+*/
+>>>>>>> 4da475cc6bf2f0013980156a7568e7d67a8dcd64
